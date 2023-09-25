@@ -4,30 +4,46 @@ namespace App\Http\Controllers\Operator\Mylea;
 
 use App\Http\Controllers\Controller;
 use App\Models\Baglog\Baglog;
+use App\Models\Mylea\MyleaProduction;
+use App\Http\Controllers\Operator\CommonLogic;
+use App\Models\Baglog\UsedBaglog;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Operator\Baglog\BaglogLogic;
 
 class MyleaController extends Controller
 {
     public function MyleaProductionForm()
     {
-        $Baglog = Baglog::select([
-            'baglog.BaglogCode',
-            'baglog.ArrivalDate',
-            'baglog.Quantity',
-            'used_baglog.Total',
-        ])
-        ->leftJoin('used_baglog', 'baglog.id', 'used_baglog.BaglogID')
-        ->get();
-
-        $BaglogInStock = array();
-        $i = 0;
-        foreach($Baglog->groupBy('BaglogCode') as $key => $item){
-            $BaglogInStock[$i]['BaglogCode'] =  $key;
-            $UsedBaglog =  $item->sum('Total');
-            $Quantity = $Baglog->where('BaglogCode', $key)->first()->Quantity;
-            $BaglogInStock[$i]['InStock'] = $Quantity - $UsedBaglog;
-            $i++;
-        }
+        $BaglogInStock = new BaglogLogic;
+        $BaglogInStock = $BaglogInStock->InStockBaglog();
         return view('Operator.Mylea.ProductionForm', ['BaglogData' => $BaglogInStock,]);
+    }
+
+    public function MyleaProductionSubmit(Request $request)
+    {
+        $date = date_create($request['ArrivalDate']);
+        $RawCode = "MYJT0".date_format($date, "ymd");
+
+        $id = MyleaProduction::create([
+            'MyleaCode' => $RawCode,
+            'ProductionDate' => $request['ProductionDate'],
+            'TotalTray' => $request['TotalTray'],
+        ])->id;
+
+        $MyleaCode = new CommonLogic();
+        $MyleaCode = $MyleaCode->ManipCode($id, $RawCode);
+
+        MyleaProduction::where('id', $id)->update([
+            'MyleaCode' => $MyleaCode,
+        ]);
+
+        foreach($request['data'] as $item){
+            UsedBaglog::create([
+                'BaglogID' => $item['BaglogID'],
+                'MyleaID' => $id,
+                'Total' => $item['Quantity'],
+            ]);
+        }
+        return redirect(route('MyleaProductionForm'))->with('StatusSubmit', 'Data submitted!');
     }
 }

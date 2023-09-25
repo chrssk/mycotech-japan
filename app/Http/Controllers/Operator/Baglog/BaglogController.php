@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Operator\Baglog;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Operator\CommonLogic;
 use Illuminate\Http\Request;
 use App\Models\Baglog\Baglog;
 
@@ -15,25 +16,17 @@ class BaglogController extends Controller
 
     public function BaglogSubmit(Request $request){
         $date = date_create($request['ArrivalDate']);
-        $BaglogCode = "BLJP".date_format($date, "ymd");
+        $RawCode = "BLJP".date_format($date, "ymd");
         $id = Baglog::create([
-            'BaglogCode' => $BaglogCode, 
+            'BaglogCode' => $RawCode, 
             'ArrivalDate'=>$request['ArrivalDate'],
             'Quantity' => $request['Quantity'],
             'Notes' => $request['Notes']
         ])->id;
 
-        $len = strlen($id);
-        if ($len < 3){
-            $idManip = $id;
-            for($i = 0; $i < (3-$len); $i++ ){
-                $idManip = '0'.$idManip;
-            }
-        } else {
-            $idManip = substr($id, -3);
-        }
-        
-        $BaglogCode = $BaglogCode.$idManip;
+        $BaglogCode = new CommonLogic();
+        $BaglogCode = $BaglogCode->ManipCode($id, $RawCode);
+
         $Status= Baglog::where('id','=',$id)->update([
             'BaglogCode' => $BaglogCode,
         ]);

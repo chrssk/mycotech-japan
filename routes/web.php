@@ -30,3 +30,4 @@ Route::get('/en/baglog-monitoring-delete/{id}', [App\Http\Controllers\Operator\B
 
 //Operator Mylea
 Route::get('/en/mylea-production-form', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaProductionForm'])->name('MyleaProductionForm');
+Route::post('/en/mylea-production-submit', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaProductionSubmit'])->name('MyleaProductionSubmit');
