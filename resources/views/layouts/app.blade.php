@@ -33,7 +33,28 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        @guest
+                            
+                        @else
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="baglogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Baglog
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="baglogDropdown">
+                                    <li><a class="dropdown-item" href="{{route('BaglogInputForm')}}">Input Form</a></li>
+                                    <li><a class="dropdown-item" href="{{route('BaglogMonitoring')}}">Baglog Monitoring</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="myleaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Mylea
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="myleaDropdown">
+                                    <li><a class="dropdown-item" href="{{route('MyleaProductionForm')}}">Production Form</a></li>
+                                    <li><a class="dropdown-item" href="#">Mylea Monitoring</a></li>
+                                </ul>
+                            </li>
+                        @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->

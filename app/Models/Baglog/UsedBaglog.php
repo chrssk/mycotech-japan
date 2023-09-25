@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class UsedBaglog extends Model
 {
     use HasFactory;
-    protected $table = 'baglog';
+    protected $table = 'used_baglog';
 
     protected $fillable = [
         'MyleaID',
