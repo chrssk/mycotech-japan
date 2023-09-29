@@ -13,6 +13,7 @@ class FinishGood extends Model
     protected $fillable = [
         'HarvestID',
         'FinishGoodCode',  
+        'FinishGoodDate',  
         'Total', 
     ];
 }

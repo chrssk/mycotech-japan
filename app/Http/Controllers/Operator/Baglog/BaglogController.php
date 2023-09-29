@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Operator\CommonLogic;
 use Illuminate\Http\Request;
 use App\Models\Baglog\Baglog;
+use App\Models\Baglog\UsedBaglog;
+use App\Models\Mylea\MyleaProduction;
 
 class BaglogController extends Controller
 {
@@ -42,7 +44,13 @@ class BaglogController extends Controller
 
     public function BaglogMonitoring()
     {
-        $Data = Baglog::paginate(2);
+        $Data = Baglog::paginate(10);
+
+        foreach ($Data as $data) {
+            $data['Mylea'] = UsedBaglog::where('BaglogID', $data['id'])
+            ->leftJoin('mylea_production', 'used_baglog.MyleaID', 'mylea_production.id')
+            ->get();
+        }
         return view('Operator.Baglog.Monitoring', [
             'Data'=>$Data,
         ]);

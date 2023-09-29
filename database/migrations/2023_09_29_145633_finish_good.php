@@ -18,6 +18,7 @@ class FinishGood extends Migration
             $table->string('FinishGoodCode')->unique();
             $table->unsignedBigInteger('HarvestID');
             $table->foreign('HarvestID')->references('id')->on('mylea_harvest')->onDelete('cascade');
+            $table->date('FinishGoodDate');
             $table->integer('Total');
             $table->timestamps();
 
