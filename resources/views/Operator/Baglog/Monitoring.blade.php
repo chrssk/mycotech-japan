@@ -14,29 +14,37 @@
                 </div>
             @endif
         </div>
+
+      
         <h2>Baglog Monitoring</h2>
         <div id="MonitoringTable" class="bg-white">
             <table class="table table-white" >
                 <tr class="text-center">
+                    <th>Baglog Code</th>
                     <th>Arrival Date</th>
                     <th>Quantity</th>
-                    <th>Mylea Production</th>
+                    <th>Mylea Production Code</th>
                     <th>In Stock</th>
                     <th colspan="2">Action</th>
                 </tr>
                 @foreach($Data as $item)
                 <tr class="text-center">
-                    <th>{{$item['ArrivalDate']}}</th>
-                    <th>{{$item['Quantity']}}</th>
-                    <th></th>
-                    <th></th>
-                    <th>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal">
+                    <td>{{$item['BaglogCode']}}</td>
+                    <td>{{$item['ArrivalDate']}}</td>
+                    <td>{{$item['Quantity']}}</td>
+                    <td>
+                        @foreach ($item['Mylea'] as $data )
+                            {{ $data['MyleaCode'] }} <br>
+                        @endforeach
+                    </td>
+                    <td></td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal{{ $item['id'] }}">
                             Update
                         </button>
                         @include('Operator.Baglog.Partials.UpdateBaglogPartials')
-                    </th>
-                    <th><a href="{{route('BaglogMonitoringDelete', ['id'=>$item['id'],])}}">Delete</a></th>
+                    </td>
+                    <td><a href="{{route('BaglogMonitoringDelete', ['id'=>$item['id'],])}}">Delete</a></td>
                 </tr>
                 @endforeach
             </table>

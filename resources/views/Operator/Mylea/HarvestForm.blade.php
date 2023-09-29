@@ -3,29 +3,33 @@
 @section('content')
 <div class="container">
     <div class="row bg-white p-4 rounded">
-        <div class="alertDiv">
-            @if(session()->has('StatusSubmit'))
+        {{-- <div class="alertDiv">
+            @if(session()->has('Success'))
                 <div class="alert alert-success" role="alert">
-                    {{session('StatusSubmit')}}
+                    {{session('Success')}}
                 </div>
+            @elseif(session()->has('Error'))
+            <div class="alert alert-danger" role="alert">
+                {{session('Error')}}
+            </div>
             @endif
-        </div>
-        <h2>Mylea Production Form</h2>
-        <form action="{{route('MyleaProductionSubmit')}}" method="POST">
+        </div> --}}
+
+        <h2>Mylea {{ $MyleaDetails->MyleaCode }} Harvest Form</h2>
+        <form action="{{route('MyleaHarvestSubmit')}}" method="POST">
             @csrf
             <div class="mb-3">
-              <label for="ProductionDate" class="form-label">Production Date</label>
-              <input type="date" class="form-control" id="ProductionDate" name="ProductionDate" required>
+              <input type="hidden" class="form-control" id="MyleaID" name="MyleaID" value="{{ $MyleaDetails->id }}">
             </div>
             <div class="mb-3">
-              <label for="TotalTray" class="form-label">Total Tray</label>
-              <input type="number" class="form-control" id="TotalTray" name="TotalTray" required>
+              <label for="HarvestDate" class="form-label">Harvest Date</label>
+              <input type="date" class="form-control" id="HarvestDate" name="HarvestDate" required>
             </div>
             <table class="table table-bordered" id="dynamicAddRemove">
                 <tr>
                     <th>Baglog Code</th>
                     <th>Quantity</th>
-                    <th></th>
+                    <th>Notes</th>
                 </tr>
                 <tr>
                     <td>
@@ -36,6 +40,7 @@
                         </select>
                     </td>
                     <td><input type="number" name="data[0][Quantity]" class="form-control" /></td>
+                    <td><input type="text" name="data[0][Notes]" class="form-control" /></td>
                     <td><button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">Add Baglog</button></td>
                 </tr>
             </table> 
@@ -49,7 +54,7 @@
         var i = 0;
         $("#dynamic-ar").click(function () {
             ++i;
-        $("#dynamicAddRemove").append('<tr><td><select name="data['+ i +'][BaglogID]" class="form-select" id="BaglogCode">@foreach ($BaglogData as $item)<option value="{{$item['id']}}">{{$item['BaglogCode']}} In Stock :{{$item['InStock']}}</option>@endforeach</select></td><td><input type="number" name="data['+ i +'][Quantity]" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">Delete</button></td></tr>');
+        $("#dynamicAddRemove").append('<tr><td><select name="data['+ i +'][BaglogID]" class="form-select" id="BaglogCode">@foreach ($BaglogData as $item)<option value="{{$item['id']}}">{{$item['BaglogCode']}} In Stock :{{$item['InStock']}}</option>@endforeach</select></td><td><input type="number" name="data['+ i +'][Quantity]" class="form-control" /></td><td><input type="text" name="data['+ i +'][Notes]" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">Delete</button></td></tr>');
         });
         $(document).on('click', '.remove-input-field', function () {
             $(this).parents('tr').remove();

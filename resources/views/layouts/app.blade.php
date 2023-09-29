@@ -51,7 +51,7 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="myleaDropdown">
                                     <li><a class="dropdown-item" href="{{route('MyleaProductionForm')}}">Production Form</a></li>
-                                    <li><a class="dropdown-item" href="#">Mylea Monitoring</a></li>
+                                    <li><a class="dropdown-item" href="{{route('MyleaMonitoring')}}">Mylea Monitoring</a></li>
                                 </ul>
                             </li>
                         @endguest
