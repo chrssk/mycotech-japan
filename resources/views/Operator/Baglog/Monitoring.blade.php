@@ -43,7 +43,7 @@
                             {{ $data['MyleaCode'] }} <br>
                         @endforeach
                     </td>
-                    <td></td>
+                    <td>{{$item['InStock']}}</td>
                     <td>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal{{ $item['id'] }}">
                             Update

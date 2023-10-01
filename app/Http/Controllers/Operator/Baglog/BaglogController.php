@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Baglog\Baglog;
 use App\Models\Baglog\UsedBaglog;
 use App\Models\Mylea\MyleaProduction;
+use App;
 
 class BaglogController extends Controller
 {
@@ -50,6 +51,9 @@ class BaglogController extends Controller
             $data['Mylea'] = UsedBaglog::where('BaglogID', $data['id'])
             ->leftJoin('mylea_production', 'used_baglog.MyleaID', 'mylea_production.id')
             ->get();
+            $InStock = new BaglogLogic();
+            $InStock = $InStock->InStockBaglogPerCode($data['id'], $data['Quantity']);
+            $data['InStock'] = $InStock;
         }
         return view('Operator.Baglog.Monitoring', [
             'Data'=>$Data,
