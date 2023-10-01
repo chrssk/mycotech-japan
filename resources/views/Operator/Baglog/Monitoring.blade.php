@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Baglog Monitoring</li>
+        </ol>
+    </nav>
     <div class="row bg-white p-4 rounded">
         <div class="alertDiv">
             @if (session()->has('StatusUpdate'))
