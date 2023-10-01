@@ -44,7 +44,7 @@ class MyleaController extends Controller
     public function MyleaProductionSubmit(Request $request)
     {
         try {
-            $date = date_create($request['ArrivalDate']);
+            $date = date_create($request['ProductionDate']);
             $RawCode = "MYJT0".date_format($date, "ymd");
     
             $id = MyleaProduction::create([
