@@ -23,16 +23,18 @@
             @endif
         </div>
 
-        <h2>Mylea {{ $Details->MyleaCode }} Contamination Data</h2>
+        @include('Partials.LangOption')
+
+        <h2>{{__('monitoring.Mylea')}} {{ $Details->MyleaCode }} {{__('form.ContaminationData')}}</h2>
         <div id="ContaminationTable" class="bg-white">
             <table class="table table-white" >
                 <tr class="text-center">
-                    <th>No</th>
-                    <th>Baglog Code</th>
-                    <th>Contamination Date</th>
-                    <th>Total Contamination</th>
-                    <th>Notes</th>
-                    <th colspan="4">Action</th>
+                    <th>{{__('common.Number')}}</th>
+                    <th>{{__('monitoring.BaglogCode')}}</th>
+                    <th>{{__('common.ContaminationDate')}}</th>
+                    <th>{{__('common.TotalContamination')}}</th>
+                    <th>{{__('common.Notes')}}</th>
+                    <th colspan="4">{{__('common.Action')}}</th>
                 </tr>
                 @foreach($Data as $item)
                 <tr class="text-center">
@@ -43,7 +45,7 @@
                     <td> {{ $item['Notes']}} </td>
                     <td>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#DeleteModal{{$item['id']}}">
-                            Delete
+                           {{__('common.Delete')}}
                         </button>
                         @include('Operator.Mylea.Partials.DeleteContaminationConfirm') 
                     </td>

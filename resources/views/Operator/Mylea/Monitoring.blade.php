@@ -22,18 +22,20 @@
             @endif
         </div>
 
-        <h2>Mylea Monitoring</h2>
+        @include('Partials.LangOption')
+
+        <h2>{{__("monitoring.MyleaTitle")}}</h2>
         <div id="MonitoringTable" class="bg-white">
             <table class="table table-white" >
                 <tr class="text-center">
-                    <th>Production Code</th>
-                    <th>Production Date</th>
-                    <th>Total Tray</th>
-                    <th>Contamination</th>
-                    <th>Harvest</th>
-                    <th>Finish Good</th>
-                    <th>In Stock</th>
-                    <th colspan="4">Action</th>
+                    <th>{{__("monitoring.ProductionCode")}}</th>
+                    <th>{{__("common.ProductionDate")}}</th>
+                    <th>{{__("common.TotalTray")}}</th>
+                    <th>{{__("common.Contamination")}}</th>
+                    <th>{{__("common.Harvest")}}</th>
+                    <th>{{__("common.FinishGood")}}</th>
+                    <th>{{__("common.InStock")}}</th>
+                    <th colspan="4">{{__("common.Action")}}</th>
                 </tr>
                 @foreach($Data as $item)
                 <tr class="text-center">
@@ -51,10 +53,10 @@
                         @include('Operator.Baglog.Partials.UpdateBaglogPartials')
                     </td> --}}
                     {{-- <td><a href="{{route('BaglogMonitoringDelete', ['id'=>$item['id'],])}}">Delete</a></td> --}}
-                    <td><a href="{{route('MyleaContaminationForm', ['id'=>$item['id'],])}}">Contamination</a></td>
-                    <td><a href="{{route('MyleaContaminationData', ['id'=>$item['id'],])}}">Contamination Data</a></td>
-                    <td><a href="{{route('MyleaHarvestForm', ['id'=>$item['id'],])}}">Harvest</a></td>
-                    <td><a href="{{route('MyleaHarvestData', ['id'=>$item['id'],])}}">Harvest Data</a></td>
+                    <td><a href="{{route('MyleaContaminationForm', ['id'=>$item['id'],])}}">{{__("common.Contamination")}}</a></td>
+                    <td><a href="{{route('MyleaContaminationData', ['id'=>$item['id'],])}}">{{__("monitoring.ContaminationData")}}</a></td>
+                    <td><a href="{{route('MyleaHarvestForm', ['id'=>$item['id'],])}}">{{__("common.Harvest")}}</a></td>
+                    <td><a href="{{route('MyleaHarvestData', ['id'=>$item['id'],])}}">{{__("monitoring.HarvestData")}}</a></td>
                 </tr>
                 @endforeach
             </table>

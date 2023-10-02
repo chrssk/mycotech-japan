@@ -21,25 +21,26 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/change-language/{lang}',"\App\Http\Controllers\HomeController@changeLang")->middleware('Language');
 
 //Operator Baglog
-Route::get('/en/baglog-input-form', [App\Http\Controllers\Operator\Baglog\BaglogController::class, 'BaglogInputForm'])->name('BaglogInputForm');
+Route::get('/en/baglog-input-form', [App\Http\Controllers\Operator\Baglog\BaglogController::class, 'BaglogInputForm'])->name('BaglogInputForm')->middleware('Language');
 Route::post('/en/baglog-submit', [App\Http\Controllers\Operator\Baglog\BaglogController::class, 'BaglogSubmit'])->name('BaglogSubmit');
-Route::get('/en/baglog-monitoring', [App\Http\Controllers\Operator\Baglog\BaglogController::class, 'BaglogMonitoring'])->name('BaglogMonitoring');
+Route::get('/en/baglog-monitoring', [App\Http\Controllers\Operator\Baglog\BaglogController::class, 'BaglogMonitoring'])->name('BaglogMonitoring')->middleware('Language');
 Route::post('/en/baglog-monitoring-update', [App\Http\Controllers\Operator\Baglog\BaglogController::class, 'BaglogMonitoringUpdate'])->name('BaglogMonitoringUpdate');
 Route::get('/en/baglog-monitoring-delete/{id}', [App\Http\Controllers\Operator\Baglog\BaglogController::class, 'BaglogMonitoringDelete'])->name('BaglogMonitoringDelete');
 
 //Operator Mylea
-Route::get('/en/mylea-monitoring', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaMonitoring'])->name('MyleaMonitoring');
-Route::get('/en/mylea-production-form', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaProductionForm'])->name('MyleaProductionForm');
+Route::get('/en/mylea-monitoring', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaMonitoring'])->name('MyleaMonitoring')->middleware('Language');
+Route::get('/en/mylea-production-form', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaProductionForm'])->name('MyleaProductionForm')->middleware('Language');
 Route::post('/en/mylea-production-submit', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaProductionSubmit'])->name('MyleaProductionSubmit');
-Route::get('/en/mylea-contamination-form/{id}', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaContaminationForm'])->name('MyleaContaminationForm');
+Route::get('/en/mylea-contamination-form/{id}', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaContaminationForm'])->name('MyleaContaminationForm')->middleware('Language');
 Route::post('/en/mylea-contamination-submit', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaContaminationSubmit'])->name('MyleaContaminationSubmit');
-Route::get('/en/mylea-contamination-data/{id}', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaContaminationData'])->name('MyleaContaminationData');
+Route::get('/en/mylea-contamination-data/{id}', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaContaminationData'])->name('MyleaContaminationData')->middleware('Language');
 Route::get('/en/mylea-contamination-delete/{id}/{details}', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaContaminationDelete'])->name('MyleaContaminationDelete');
-Route::get('/en/mylea-harvest-form/{id}', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaHarvestForm'])->name('MyleaHarvestForm');
+Route::get('/en/mylea-harvest-form/{id}', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaHarvestForm'])->name('MyleaHarvestForm')->middleware('Language');
 Route::post('/en/mylea-harvest-submit', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaHarvestSubmit'])->name('MyleaHarvestSubmit');
-Route::get('/en/mylea-harvest-data/{id}', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaHarvestData'])->name('MyleaHarvestData');
+Route::get('/en/mylea-harvest-data/{id}', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaHarvestData'])->name('MyleaHarvestData')->middleware('Language');
 Route::get('/en/mylea-harvest-delete/{id}/{details}', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaHarvestDelete'])->name('MyleaHarvestDelete');
 
 // Operator Finish Good

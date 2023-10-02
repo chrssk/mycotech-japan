@@ -21,17 +21,18 @@
             @endif
         </div>
 
+        @include('Partials.LangOption')
       
-        <h2>Baglog Monitoring</h2>
+        <h2>{{__("monitoring.BaglogTitle")}}</h2>
         <div id="MonitoringTable" class="bg-white">
             <table class="table table-white" >
                 <tr class="text-center">
-                    <th>Baglog Code</th>
-                    <th>Arrival Date</th>
-                    <th>Quantity</th>
-                    <th>Mylea Production Code</th>
-                    <th>In Stock</th>
-                    <th colspan="2">Action</th>
+                    <th>{{__("monitoring.BaglogCode")}}</th>
+                    <th>{{__("common.ArrivalDate")}}</th>
+                    <th>{{__("common.Quantity")}}</th>
+                    <th>{{__("monitoring.MyleaCode")}}</th>
+                    <th>{{__("common.InStock")}}</th>
+                    <th colspan="2">{{__("common.Action")}}</th>
                 </tr>
                 @foreach($Data as $item)
                 <tr class="text-center">
@@ -46,11 +47,11 @@
                     <td>{{$item['InStock']}}</td>
                     <td>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal{{ $item['id'] }}">
-                            Update
+                            {{__("monitoring.Update")}}
                         </button>
                         @include('Operator.Baglog.Partials.UpdateBaglogPartials')
                     </td>
-                    <td><a href="{{route('BaglogMonitoringDelete', ['id'=>$item['id'],])}}">Delete</a></td>
+                    <td><a href="{{route('BaglogMonitoringDelete', ['id'=>$item['id'],])}}">{{__("monitoring.Delete")}}</a></td>
                 </tr>
                 @endforeach
             </table>

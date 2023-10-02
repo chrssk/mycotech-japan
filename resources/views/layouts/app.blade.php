@@ -74,6 +74,17 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Language
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="langDropdown">
+                                    <select class="form-control Langchange">
+                                        <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }} class="dropdown-item">English</option>
+                                        <option value="zhh" {{ session()->get('locale') == 'zhh' ? 'selected' : '' }} class="dropdown-item">Chinese</option>                    
+                                    </select>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
