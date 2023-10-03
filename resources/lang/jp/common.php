@@ -13,8 +13,12 @@
         'TotalTray' => 'トレイ',
         'Contamination' => '汚染',
         'Harvest' => '収穫',
+        'HarvestDate'=> '収穫日',
         'FinishGood' => '良い仕上がり',
+        'TotalFinishGood'=> '総仕上がり',
+        'FinishGoodDate' => 'フィニッシュ・グッド・デート',
         'ContaminationDate' => '汚染日',
         'Number' => '番号',
         'TotalContamination' => '総汚染量',
+        'Total' => '合計',
     ];

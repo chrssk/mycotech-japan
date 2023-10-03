@@ -4,9 +4,9 @@
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-          <li class="breadcrumb-item"><a href="{{route('MyleaMonitoring')}}">Mylea Monitoring</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Contamination Form</li>
+          <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('monitoring.Home')}}</a></li>
+          <li class="breadcrumb-item"><a href="{{route('MyleaMonitoring')}}">{{__('monitoring.MyleaTitle')}}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{__('form.ContaminationForm')}}</li>
         </ol>
     </nav>
     <div class="row bg-white p-4 rounded">
@@ -21,7 +21,7 @@
             </div>
             @endif
         </div> --}}
-        @include('Partials.LangOption')
+
         <h2>{{__('monitoring.Mylea')}}{{ $MyleaDetails->MyleaCode }} {{__('form.ContaminationForm')}}</h2>
         <form action="{{route('MyleaContaminationSubmit')}}" method="POST">
             @csrf
@@ -34,7 +34,7 @@
             </div>
             <table class="table table-bordered" id="dynamicAddRemove">
                 <tr>
-                    <th>{{__('monitorin.BaglogCode')}}</th>
+                    <th>{{__('monitoring.BaglogCode')}}</th>
                     <th>{{__('common.Quantity')}}</th>
                     <th>{{__('common.Notes')}}</th>
                 </tr>

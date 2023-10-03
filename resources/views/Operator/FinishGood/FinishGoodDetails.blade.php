@@ -5,10 +5,10 @@
     <div class="row bg-white p-4 rounded">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{route('MyleaMonitoring')}}">Mylea Monitoring</a></li>
-              <li class="breadcrumb-item"><a href="{{route('MyleaHarvestData', ['id' => $MyleaID])}}">Mylea Harvest Data</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Finish Good Data</li>
+                <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('monitoring.Home')}}</a></li>
+                <li class="breadcrumb-item"><a href="{{route('MyleaMonitoring')}}">{{__('monitoring.MyleaTitle')}}</a></li>
+                <li class="breadcrumb-item"><a href="{{route('MyleaHarvestData', ['id' => $MyleaID])}}">{{__('monitoring.HarvestData')}}</a></li>
+              <li class="breadcrumb-item active" aria-current="page">{{__('monitoring.FinishGoodData')}}</li>
             </ol>
         </nav>
         <div class="alertDiv">
@@ -23,15 +23,15 @@
             @endif
         </div>
         
-        <h2>Mylea Harvest {{ $HarvestID }} Finish Good Data</h2>
+        <h2>{{__('monitoring.Mylea')}} {{__('common.Harvest')}} {{ $HarvestID }} {{__('monitoring.FinishGoodData')}}</h2>
         <div id="ContaminationTable" class="bg-white">
             <table class="table table-white" >
                 <tr class="text-center">
-                    <th>No</th>
-                    <th>Finish Good Code </th>
-                    <th>Finish Good Date</th>
-                    <th>Total</th>
-                    <th>Action</th>
+                    <th>{{__('common.Number')}}</th>
+                    <th>{{__('monitoring.FinishGoodCode')}} </th>
+                    <th>{{__('common.FinishGoodDate')}}</th>
+                    <th>{{__('common.Total')}}</th>
+                    <th>{{__('common.Action')}}</th>
                 </tr>
                 @foreach ($Data as $item )
                 <tr class="text-center">
@@ -41,7 +41,7 @@
                   <td> {{ $item['Total']}} </td>
                    <td>
                       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#DeleteModal{{$item['id']}}">
-                          Delete
+                          {{__('common.Delete')}}
                       </button>
                       @include('Operator.FinishGood.Partials.DeleteFinishGoodConfirm') 
                   </td>

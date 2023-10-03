@@ -4,9 +4,9 @@
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-          <li class="breadcrumb-item"><a href="{{route('MyleaMonitoring')}}">Mylea Monitoring</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Contamination Data</li>
+            <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('monitoring.Home')}}</a></li>
+            <li class="breadcrumb-item"><a href="{{route('MyleaMonitoring')}}">{{__('monitoring.MyleaTitle')}}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{__('form.ContaminationData')}}</li>
         </ol>
     </nav>
     <div class="row bg-white p-4 rounded">
@@ -22,8 +22,6 @@
             </div>
             @endif
         </div>
-
-        @include('Partials.LangOption')
 
         <h2>{{__('monitoring.Mylea')}} {{ $Details->MyleaCode }} {{__('form.ContaminationData')}}</h2>
         <div id="ContaminationTable" class="bg-white">

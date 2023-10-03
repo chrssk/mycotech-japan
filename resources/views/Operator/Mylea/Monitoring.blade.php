@@ -4,8 +4,8 @@
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Mylea Monitoring</li>
+          <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('monitoring.Home')}}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{__('monitoring.MyleaTitle')}}</li>
         </ol>
     </nav>
     <div class="row bg-white p-4 rounded">
@@ -21,8 +21,6 @@
             </div>
             @endif
         </div>
-
-        @include('Partials.LangOption')
 
         <h2>{{__("monitoring.MyleaTitle")}}</h2>
         <div id="MonitoringTable" class="bg-white">

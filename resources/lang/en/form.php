@@ -5,6 +5,8 @@
         'AddBaglog' => 'Add Baglog',
         'ContaminationForm' => 'Contamination Form',
         'ContaminationData' => 'Contamination Data',
+        'HarvestForm' => 'Harvest Form',
+        'FinishGoodForm' => 'Finish Good Form',
         
 
     ];

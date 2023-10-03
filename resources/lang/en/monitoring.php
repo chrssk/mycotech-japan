@@ -1,7 +1,7 @@
 <?php 
 
 return [
-    'welcome' => 'This is a welcome message !',
+    'Home' => 'Home',
     'Baglog' => 'Baglog',
     'BaglogTitle' => 'Baglog Monitoring',
     'BaglogCode' => 'Baglog Code',
@@ -12,4 +12,8 @@ return [
     'ProductionCode' => 'Production Code',
     'ContaminationData'=> 'Contamination Data',
     'HarvestData' => 'Harvest Data',
+    
+    'FinishGoodCode' => 'Finish Good Code',
+    'FinishGoodData'=> 'Finish Good Data',
+    
 ];

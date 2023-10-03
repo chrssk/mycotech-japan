@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('Language');
 Route::get('/change-language/{lang}',"\App\Http\Controllers\HomeController@changeLang")->middleware('Language');
 
 //Operator Baglog
@@ -44,7 +44,7 @@ Route::get('/en/mylea-harvest-data/{id}', [App\Http\Controllers\Operator\Mylea\M
 Route::get('/en/mylea-harvest-delete/{id}/{details}', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaHarvestDelete'])->name('MyleaHarvestDelete');
 
 // Operator Finish Good
-Route::get('/en/finish-good-form/{id}', [App\Http\Controllers\Operator\FinishGood\FinishGoodController::class, 'FinishGoodForm'])->name('FinishGoodForm');
+Route::get('/en/finish-good-form/{id}', [App\Http\Controllers\Operator\FinishGood\FinishGoodController::class, 'FinishGoodForm'])->name('FinishGoodForm')->middleware('Language');
 Route::post('/en/finish-good-submit}', [App\Http\Controllers\Operator\FinishGood\FinishGoodController::class, 'FinishGoodSubmit'])->name('FinishGoodSubmit');
-Route::get('/en/finish-good-data/{id}', [App\Http\Controllers\Operator\FinishGood\FinishGoodController::class, 'FinishGoodData'])->name('FinishGoodData');
+Route::get('/en/finish-good-data/{id}', [App\Http\Controllers\Operator\FinishGood\FinishGoodController::class, 'FinishGoodData'])->name('FinishGoodData')->middleware('Language');
 Route::get('/en/finish-good-delete/{id}/{details}', [App\Http\Controllers\Operator\FinishGood\FinishGoodController::class, 'FinishGoodDelete'])->name('FinishGoodDelete');

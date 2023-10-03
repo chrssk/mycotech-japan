@@ -38,20 +38,20 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="baglogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Baglog
+                                    {{__('monitoring.Baglog')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="baglogDropdown">
-                                    <li><a class="dropdown-item" href="{{route('BaglogInputForm')}}">Input Form</a></li>
-                                    <li><a class="dropdown-item" href="{{route('BaglogMonitoring')}}">Baglog Monitoring</a></li>
+                                    <li><a class="dropdown-item" href="{{route('BaglogInputForm')}}">{{__('form.BaglogInputForm')}}</a></li>
+                                    <li><a class="dropdown-item" href="{{route('BaglogMonitoring')}}">{{__('monitoring.BaglogTitle')}}</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="myleaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Mylea
+                                    {{__('monitoring.Mylea')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="myleaDropdown">
-                                    <li><a class="dropdown-item" href="{{route('MyleaProductionForm')}}">Production Form</a></li>
-                                    <li><a class="dropdown-item" href="{{route('MyleaMonitoring')}}">Mylea Monitoring</a></li>
+                                    <li><a class="dropdown-item" href="{{route('MyleaProductionForm')}}">{{__('form.MyleaProductionForm')}}</a></li>
+                                    <li><a class="dropdown-item" href="{{route('MyleaMonitoring')}}">{{__('monitoring.MyleaTitle')}}</a></li>
                                 </ul>
                             </li>
                         @endguest
@@ -78,10 +78,8 @@
                                     Language
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="langDropdown">
-                                    <select class="form-control Langchange">
-                                        <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }} class="dropdown-item">English</option>
-                                        <option value="zhh" {{ session()->get('locale') == 'zhh' ? 'selected' : '' }} class="dropdown-item">Chinese</option>                    
-                                    </select>
+                                    <a class="nav-link" href="#" onclick="changeLanguage('en')">{{ __('English') }}</a>
+                                    <a class="nav-link" href="#" onclick="changeLanguage('jp')">{{ __('Japanese') }}</a>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -106,6 +104,12 @@
                 </div>
             </div>
         </nav>
+
+        <script>
+            function changeLanguage(lang){
+                window.location='{{url("change-language")}}/'+lang;
+            }
+        </script>
 
         <main class="py-4">
             @yield('content')

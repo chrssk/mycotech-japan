@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'welcome' => 'This is a welcome message in japanese!',
+    'Home' => 'ホーム',
     'Baglog' => 'バッグログ',
     'BaglogTitle' => 'バッグログ・モニタリング',
     'BaglogCode' => 'バッグログ・コード',
@@ -13,4 +13,6 @@ return [
     'ContaminationData'=> '汚染データ',
     'HarvestData' => '収穫データ',
 
+    'FinishGoodCode' => 'グッド・コードの完成',
+    'FinishGoodData'=> '良いデータを仕上げる',
 ];

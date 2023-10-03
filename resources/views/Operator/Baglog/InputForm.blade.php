@@ -21,7 +21,6 @@
                 </div>
             @endif
         </div>
-        @include('Partials.LangOption')
         <h2>{{__('form.BaglogInputForm')}}</h2>
         <form action="{{route('BaglogSubmit')}}" method="POST">
             @csrf
@@ -34,10 +33,10 @@
               <input type="number" class="form-control" id="Quantity" name="Quantity" required>
             </div>
             <div class="mb-3">
-                <label for="Notes" class="form-label">{{__('common.Notes')}}<</label>
+                <label for="Notes" class="form-label">{{__('common.Notes')}}</label>
                 <input type="text" class="form-control" id="Notes" name="Notes">
             </div>
-            <button type="submit" class="btn btn-primary">{{__('common.Submit')}}<</button>
+            <button type="submit" class="btn btn-primary">{{__('common.Submit')}}</button>
         </form>          
     </div>
 </div>

@@ -13,8 +13,12 @@
         'TotalTray' => 'Total Tray',
         'Contamination' => 'Contamination',
         'Harvest' => 'Harvest',
+        'HarvestDate' => 'Harvest Date',
         'FinishGood' => 'Finish Good',
+        'TotalFinishGood'=> 'Total Finish Good',
+        'FinishGoodDate' => 'Finish Good Date',
         'ContaminationDate' => 'Contamination Date',
         'Number' => 'Num',
         'TotalContamination' => 'Total Contamination',
+        'Total' => 'Total',
     ];

@@ -4,8 +4,8 @@
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Baglog Monitoring</li>
+          <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('monitoring.Home')}}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{__('monitoring.BaglogTitle')}}</li>
         </ol>
     </nav>
     <div class="row bg-white p-4 rounded">
@@ -20,8 +20,6 @@
                 </div>
             @endif
         </div>
-
-        @include('Partials.LangOption')
       
         <h2>{{__("monitoring.BaglogTitle")}}</h2>
         <div id="MonitoringTable" class="bg-white">
@@ -47,11 +45,11 @@
                     <td>{{$item['InStock']}}</td>
                     <td>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal{{ $item['id'] }}">
-                            {{__("monitoring.Update")}}
+                            {{__("common.Update")}}
                         </button>
                         @include('Operator.Baglog.Partials.UpdateBaglogPartials')
                     </td>
-                    <td><a href="{{route('BaglogMonitoringDelete', ['id'=>$item['id'],])}}">{{__("monitoring.Delete")}}</a></td>
+                    <td><a href="{{route('BaglogMonitoringDelete', ['id'=>$item['id'],])}}">{{__("common.Delete")}}</a></td>
                 </tr>
                 @endforeach
             </table>
