@@ -73,7 +73,7 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Language
                                 </a>
@@ -81,7 +81,7 @@
                                     <a class="nav-link" href="#" onclick="changeLanguage('en')">{{ __('English') }}</a>
                                     <a class="nav-link" href="#" onclick="changeLanguage('jp')">{{ __('Japanese') }}</a>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -98,6 +98,12 @@
                                         @csrf
                                     </form>
                                 </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <select onchange="changeLanguage(this.value)" class="form-select col-2">
+                                    <option {{session()->has('lang_code')?(session()->get('lang_code')=='en'?'selected':''):''}} value="en">English</option>
+                                    <option {{session()->has('lang_code')?(session()->get('lang_code')=='jp'?'selected':''):''}} value="jp">Japanese</option>
+                                </select>
                             </li>
                         @endguest
                     </ul>
