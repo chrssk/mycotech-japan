@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('monitoring.Home')}}</a></li>
+            <li class="breadcrumb-item"><a href="{{route('MyleaMonitoring')}}">{{__('monitoring.MyleaTitle')}}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{__('monitoring.HarvestData')}}</li>
+        </ol>
+    </nav>
     <div class="row bg-white p-4 rounded">
         
         <div class="alertDiv">
@@ -16,17 +23,17 @@
             @endif
         </div>
 
-        <h2>Mylea {{ $Details->MyleaCode }} Harvest Data</h2>
+        <h2>{{__('monitoring.Mylea')}} {{ $Details->MyleaCode }} {{__('monitoring.HarvestData')}}</h2>
         <div id="ContaminationTable" class="bg-white">
             <table class="table table-white" >
                 <tr class="text-center">
-                    <th>No</th>
-                    <th>Baglog Code</th>
-                    <th>Harvest Date</th>
-                    <th>Harvest</th>
-                    <th>Total Finish Good</th>
-                    <th>Notes</th>
-                    <th colspan="4">Action</th>
+                    <th>{{__('common.Number')}}</th>
+                    <th>{{__('monitoring.BaglogCode')}}</th>
+                    <th>{{__('common.HarvestDate')}}</th>
+                    <th>{{__('common.Harvest')}}</th>
+                    <th>{{__('common.TotalFinishGood')}}</th>
+                    <th>{{__('common.Notes')}}</th>
+                    <th colspan="4">{{__('common.Action')}}</th>
                 </tr>
                 @foreach($Data as $item)
                 <tr class="text-center">
@@ -44,12 +51,12 @@
                     </td> --}}
                     <td>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#DeleteModal{{$item['id']}}">
-                            Delete
+                            {{__('common.Delete')}}
                         </button>
                         @include('Operator.Mylea.Partials.DeleteHarvestConfirm') 
                     </td>
-                    <td><a href="{{route('FinishGoodForm', ['id'=>$item['id'],])}}">Finish Good</a></td>
-                    <td><a href="{{route('FinishGoodData', ['id'=>$item['id'],])}}">Finish Good Data</a></td>
+                    <td><a href="{{route('FinishGoodForm', ['id'=>$item['id'],])}}">{{__('common.FinishGood')}}</a></td>
+                    <td><a href="{{route('FinishGoodData', ['id'=>$item['id'],])}}">{{__('monitoring.FinishGoodData')}}</a></td>
                 </tr>
                @endforeach
             </table>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Operator\Baglog;
 
 use App\Http\Controllers\Controller;
 use App\Models\Baglog\Baglog;
+use App\Models\Baglog\UsedBaglog;
 use Illuminate\Http\Request;
 
 class BaglogLogic 
@@ -32,6 +33,20 @@ class BaglogLogic
             $i++;
         }
         return $BaglogInStock;
+    }
+
+    public function InStockBaglogPerCode($BaglogID, $Quantity){
+        $Baglog = UsedBaglog::select([
+            'used_baglog.BaglogID',
+            'used_baglog.Total',
+        ])
+        ->where('BaglogID',$BaglogID)
+        ->get();
+
+        $InStock = $Quantity - $Baglog->sum('Total');
+
+        return $InStock;
+
     }
 
     public function ManipCode($id, $RawCode){

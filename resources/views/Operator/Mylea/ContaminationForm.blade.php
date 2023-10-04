@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('monitoring.Home')}}</a></li>
+          <li class="breadcrumb-item"><a href="{{route('MyleaMonitoring')}}">{{__('monitoring.MyleaTitle')}}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{__('form.ContaminationForm')}}</li>
+        </ol>
+    </nav>
     <div class="row bg-white p-4 rounded">
         {{-- <div class="alertDiv">
             @if(session()->has('Success'))
@@ -15,36 +22,36 @@
             @endif
         </div> --}}
 
-        <h2>Mylea {{ $MyleaDetails->MyleaCode }} Contamination Form</h2>
+        <h2>{{__('monitoring.Mylea')}}{{ $MyleaDetails->MyleaCode }} {{__('form.ContaminationForm')}}</h2>
         <form action="{{route('MyleaContaminationSubmit')}}" method="POST">
             @csrf
             <div class="mb-3">
               <input type="hidden" class="form-control" id="MyleaID" name="MyleaID" value="{{ $MyleaDetails->id }}">
             </div>
             <div class="mb-3">
-              <label for="ContaminationDate" class="form-label">Contamination Date</label>
+              <label for="ContaminationDate" class="form-label">{{__('common.ContaminationDate')}}</label>
               <input type="date" class="form-control" id="ContaminationDate" name="ContaminationDate" required>
             </div>
             <table class="table table-bordered" id="dynamicAddRemove">
                 <tr>
-                    <th>Baglog Code</th>
-                    <th>Quantity</th>
-                    <th>Notes</th>
+                    <th>{{__('monitoring.BaglogCode')}}</th>
+                    <th>{{__('common.Quantity')}}</th>
+                    <th>{{__('common.Notes')}}</th>
                 </tr>
                 <tr>
                     <td>
                         <select name="data[0][BaglogID]" class="form-select" id="BaglogCode">
                             @foreach ($BaglogData as $item)
-                                <option value="{{$item['id']}}">{{$item['BaglogCode']}} In Stock :{{$item['InStock']}}</option>
+                                <option value="{{$item['id']}}">{{$item['BaglogCode']}} {{__('common.InStock')}} :{{$item['InStock']}}</option>
                             @endforeach
                         </select>
                     </td>
                     <td><input type="number" name="data[0][Quantity]" class="form-control" /></td>
                     <td><input type="text" name="data[0][Notes]" class="form-control" /></td>
-                    <td><button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">Add Baglog</button></td>
+                    <td><button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">{{__('form.AddBaglog')}}</button></td>
                 </tr>
             </table> 
-            <button type="submit" class="btn btn-primary">Submit</button> 
+            <button type="submit" class="btn btn-primary">{{__('common.Submit')}}</button> 
         </form>          
     </div>
     <!-- JavaScript -->

@@ -38,20 +38,20 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="baglogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Baglog
+                                    {{__('monitoring.Baglog')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="baglogDropdown">
-                                    <li><a class="dropdown-item" href="{{route('BaglogInputForm')}}">Input Form</a></li>
-                                    <li><a class="dropdown-item" href="{{route('BaglogMonitoring')}}">Baglog Monitoring</a></li>
+                                    <li><a class="dropdown-item" href="{{route('BaglogInputForm')}}">{{__('form.BaglogInputForm')}}</a></li>
+                                    <li><a class="dropdown-item" href="{{route('BaglogMonitoring')}}">{{__('monitoring.BaglogTitle')}}</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="myleaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Mylea
+                                    {{__('monitoring.Mylea')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="myleaDropdown">
-                                    <li><a class="dropdown-item" href="{{route('MyleaProductionForm')}}">Production Form</a></li>
-                                    <li><a class="dropdown-item" href="{{route('MyleaMonitoring')}}">Mylea Monitoring</a></li>
+                                    <li><a class="dropdown-item" href="{{route('MyleaProductionForm')}}">{{__('form.MyleaProductionForm')}}</a></li>
+                                    <li><a class="dropdown-item" href="{{route('MyleaMonitoring')}}">{{__('monitoring.MyleaTitle')}}</a></li>
                                 </ul>
                             </li>
                         @endguest
@@ -73,6 +73,15 @@
                                 </li>
                             @endif
                         @else
+                            {{-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Language
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="langDropdown">
+                                    <a class="nav-link" href="#" onclick="changeLanguage('en')">{{ __('English') }}</a>
+                                    <a class="nav-link" href="#" onclick="changeLanguage('jp')">{{ __('Japanese') }}</a>
+                                </ul>
+                            </li> --}}
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -90,11 +99,23 @@
                                     </form>
                                 </div>
                             </li>
+                            <li class="nav-item dropdown">
+                                <select onchange="changeLanguage(this.value)" class="form-select col-2">
+                                    <option {{session()->has('lang_code')?(session()->get('lang_code')=='en'?'selected':''):''}} value="en">English</option>
+                                    <option {{session()->has('lang_code')?(session()->get('lang_code')=='jp'?'selected':''):''}} value="jp">Japanese</option>
+                                </select>
+                            </li>
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
+
+        <script>
+            function changeLanguage(lang){
+                window.location='{{url("change-language")}}/'+lang;
+            }
+        </script>
 
         <main class="py-4">
             @yield('content')

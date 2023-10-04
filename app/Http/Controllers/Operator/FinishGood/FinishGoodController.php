@@ -13,8 +13,13 @@ class FinishGoodController extends Controller
 {
     public function FinishGoodForm($id)
     {
+        $MyleaID = MyleaHarvest::select([
+            'MyleaID',
+        ])->where('id', $id)->first();
+        $MyleaID = $MyleaID->MyleaID;
         return view('Operator.FinishGood.FinishGoodForm', [
             'HarvestID' => $id,
+            'MyleaID' => $MyleaID
         ]);
     }
 
@@ -49,12 +54,17 @@ class FinishGoodController extends Controller
 
     public function FinishGoodData($id)
     {
-
         $FinishGoodData = FinishGood::where('HarvestID', $id)->get();
-     
+
+        $MyleaID = MyleaHarvest::select([
+            'MyleaID',
+        ])->where('id', $id)->first();
+        $MyleaID = $MyleaID->MyleaID;
+        
         return view('Operator.FinishGood.FinishGoodDetails', [
             'Data' => $FinishGoodData,
-            'HarvestID' => $id
+            'HarvestID' => $id,
+            'MyleaID' => $MyleaID
         ]);
     }
 
