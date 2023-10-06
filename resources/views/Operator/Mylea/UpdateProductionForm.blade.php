@@ -9,7 +9,6 @@
         </ol>
     </nav>
     <div class="row bg-white p-4 rounded">
-
         <div class="alertDiv">
             @if(session()->has('Success'))
                 <div class="alert alert-success" role="alert">
@@ -23,15 +22,16 @@
         </div>
         
         <h2>{{__('form.MyleaProductionForm')}}</h2>
-        <form action="{{route('MyleaProductionSubmit')}}" method="POST">
+        <form action="{{route('MyleaProductionUpdate')}}" method="POST">
             @csrf
             <div class="mb-3">
+              <input type="hidden" name="id" value="{{ $Data['id'] }}">  
               <label for="ProductionDate" class="form-label">{{__('common.ProductionDate')}}</label>
-              <input type="date" class="form-control" id="ProductionDate" name="ProductionDate" required>
+              <input type="date" class="form-control" id="ProductionDate" name="ProductionDate" value="{{ $Data['ProductionDate'] }}" required>
             </div>
             <div class="mb-3">
               <label for="TotalTray" class="form-label">{{__('common.TotalTray')}}</label>
-              <input type="number" class="form-control" id="TotalTray" name="TotalTray" required>
+              <input type="number" class="form-control" id="TotalTray" name="TotalTray" value="{{ $Data['TotalTray'] }}" required>
             </div>
             <table class="table table-bordered" id="dynamicAddRemove">
                 <tr>
@@ -39,17 +39,30 @@
                     <th>{{__('common.Quantity')}}</th>
                     <th></th>
                 </tr>
-                <tr>
-                    <td>
-                        <select name="data[0][BaglogID]" class="form-select" id="BaglogCode">
-                            @foreach ($BaglogData as $item)
-                                <option value="{{$item['id']}}">{{$item['BaglogCode']}} {{__('common.InStock')}} :{{$item['InStock']}}</option>
-                            @endforeach
-                        </select>
-                    </td>
-                    <td><input type="number" name="data[0][Quantity]" class="form-control" /></td>
-                    <td><button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">{{__('form.AddBaglog')}}</button></td>
-                </tr>
+                @foreach ($DataBaglog as $index =>$dataBaglog2 )
+                    <tr>
+                        <td>
+                            <select name="data[{{ $index }}][BaglogID]" class="form-select" id="BaglogCode">
+                                @foreach ($BaglogData as $item)
+                                    <option value="{{$item['id']}}"
+                                        @if ($item['id'] == $dataBaglog2['BaglogID'])
+                                            selected
+                                        @endif
+                                    >{{$item['BaglogCode']}} {{__('common.InStock')}} :{{$item['InStock']}}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                        <td><input type="number" name="data[{{ $index }}][Quantity]" class="form-control" value="{{ $dataBaglog2['Total'] }}"></td>
+                        <td>
+                            @if ($index > 0)
+                                <button type="button" class="btn btn-outline-danger remove-input-field">Delete</button>
+                            @else
+                                <button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">{{__('form.AddBaglog')}}</button>
+                            @endif
+                        </td>
+                    </tr>        
+                @endforeach
+
             </table> 
             <button type="submit" class="btn btn-primary">{{__('common.Submit')}}</button> 
         </form>          

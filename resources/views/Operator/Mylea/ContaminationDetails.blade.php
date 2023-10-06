@@ -10,7 +10,6 @@
         </ol>
     </nav>
     <div class="row bg-white p-4 rounded">
-        
         <div class="alertDiv">
             @if(session()->has('Success'))
                 <div class="alert alert-success" role="alert">
@@ -27,7 +26,7 @@
         <div id="ContaminationTable" class="bg-white">
             <table class="table table-white" >
                 <tr class="text-center">
-                    <th>{{__('common.Number')}}</th>
+                    {{-- <th>{{__('common.Number')}}</th> --}}
                     <th>{{__('monitoring.BaglogCode')}}</th>
                     <th>{{__('common.ContaminationDate')}}</th>
                     <th>{{__('common.TotalContamination')}}</th>
@@ -36,7 +35,7 @@
                 </tr>
                 @foreach($Data as $item)
                 <tr class="text-center">
-                    <td> {{ $item['id']}} </td>
+                    {{-- <td> {{ $item['id']}} </td> --}}
                     <td> {{ $item['BaglogCode']}} </td>
                     <td> {{ $item['ContaminationDate']}} </td>
                     <td> {{ $item['Total']}} </td>

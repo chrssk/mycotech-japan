@@ -20,7 +20,7 @@ class MyleaContamination extends Migration
             $table->unsignedBigInteger('BaglogID');
             $table->foreign('BaglogID')->references('id')->on('baglog')->onDelete('cascade');
             $table->date('ContaminationDate');
-            $table->string('Notes');
+            $table->string('Notes')->nullable();
             $table->integer('Total');
             $table->timestamps();
 
