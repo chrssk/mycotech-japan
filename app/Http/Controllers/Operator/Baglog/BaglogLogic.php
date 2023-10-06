@@ -34,6 +34,12 @@ class BaglogLogic
         }
         return $BaglogInStock;
     }
+    public function UsedBaglogPerMyleaCode($id)
+    {
+        $Baglog = UsedBaglog::where('MyleaID', $id)->join('baglog', 'baglog.id', 'used_baglog.BaglogID')->get();
+
+        return $Baglog;
+    }
 
     public function InStockBaglogPerCode($BaglogID, $Quantity){
         $Baglog = UsedBaglog::select([

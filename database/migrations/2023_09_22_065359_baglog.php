@@ -18,7 +18,7 @@ class Baglog extends Migration
             $table->string('BaglogCode')->unique();
             $table->date('ArrivalDate');
             $table->integer('Quantity');
-            $table->string('Notes');
+            $table->string('Notes')->nullable();
             $table->timestamps();
         });
     }

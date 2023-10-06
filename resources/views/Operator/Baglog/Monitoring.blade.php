@@ -30,6 +30,7 @@
                     <th>{{__("common.Quantity")}}</th>
                     <th>{{__("monitoring.MyleaCode")}}</th>
                     <th>{{__("common.InStock")}}</th>
+                    <th>{{__("common.Notes")}}</th>
                     <th colspan="2">{{__("common.Action")}}</th>
                 </tr>
                 @foreach($Data as $item)
@@ -43,6 +44,7 @@
                         @endforeach
                     </td>
                     <td>{{$item['InStock']}}</td>
+                    <td>{{$item['Notes']}}</td>
                     <td>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal{{ $item['id'] }}">
                             {{__("common.Update")}}

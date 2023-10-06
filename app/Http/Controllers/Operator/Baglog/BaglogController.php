@@ -18,29 +18,46 @@ class BaglogController extends Controller
     }
 
     public function BaglogSubmit(Request $request){
-        $date = date_create($request['ArrivalDate']);
-        $RawCode = "BLJP".date_format($date, "ymd");
-        $id = Baglog::create([
-            'BaglogCode' => $RawCode, 
-            'ArrivalDate'=>$request['ArrivalDate'],
-            'Quantity' => $request['Quantity'],
-            'Notes' => $request['Notes']
-        ])->id;
+        try {
 
-        $BaglogCode = new CommonLogic();
-        $BaglogCode = $BaglogCode->ManipCode($id, $RawCode);
+            $date = date_create($request['ArrivalDate']);
+            $RawCode = "BLJP".date_format($date, "ymd");
 
-        $Status= Baglog::where('id','=',$id)->update([
-            'BaglogCode' => $BaglogCode,
-        ]);
+            Baglog::create([
+                'BaglogCode' => $RawCode, 
+                'ArrivalDate'=>$request['ArrivalDate'],
+                'Quantity' => $request['Quantity'],
+                'Notes' => $request['Notes']
+            ]);
+            
+            return redirect(route('BaglogInputForm'))->with('StatusSubmit', 'Data submitted');
 
-        if($Status){
-            $Message = 'Data submitted';
-        } else {
-            $Message = 'Data submission unsuccessful';
+        } catch (\Exception $e) {
+            return redirect(route('BaglogInputForm'))->with('StatusSubmit', 'Data submission unsuccessfull ' . $e->getMessage() );
         }
+     
 
-        return redirect(route('BaglogInputForm'))->with('StatusSubmit', $Message);
+        // $id = Baglog::create([
+        //     'BaglogCode' => $RawCode, 
+        //     'ArrivalDate'=>$request['ArrivalDate'],
+        //     'Quantity' => $request['Quantity'],
+        //     'Notes' => $request['Notes']
+        // ])->id;
+
+        // $BaglogCode = new CommonLogic();
+        // $BaglogCode = $BaglogCode->ManipCode($id, $RawCode);
+
+        // $Status= Baglog::where('id','=',$id)->update([
+        //     'BaglogCode' => $BaglogCode,
+        // ]);
+
+        // if($Status){
+        //     $Message = 'Data submitted';
+        // } else {
+        //     $Message = 'Data submission unsuccessful';
+        // }
+
+        // return redirect(route('BaglogInputForm'))->with('StatusSubmit', $Message);
     }
 
     public function BaglogMonitoring()

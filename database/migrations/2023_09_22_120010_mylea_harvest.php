@@ -21,7 +21,7 @@ class MyleaHarvest extends Migration
             $table->foreign('BaglogID')->references('id')->on('baglog')->onDelete('cascade');
             $table->date('HarvestDate');
             $table->integer('Total');
-            $table->string('Notes');
+            $table->string('Notes')->nullable();
             $table->timestamps();
 
         });
