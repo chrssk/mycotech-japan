@@ -39,6 +39,8 @@ class MyleaController extends Controller
             $data['TotalFinishGood'] = MyleaHarvest::join('finish_good', 'mylea_harvest.id', '=', 'finish_good.HarvestID')
                 ->where('mylea_harvest.MyleaID', $data['id'])
                 ->sum('finish_good.Total');
+
+            $data['InStock'] = $data['TotalTray'] - ($data['TotalContamination'] + $data['TotalHarvest']);
         }
 
         return view('Operator.Mylea.Monitoring', [

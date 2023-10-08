@@ -29,13 +29,18 @@
                     <th>{{__("common.ArrivalDate")}}</th>
                     <th>{{__("common.Quantity")}}</th>
                     <th>{{__("monitoring.MyleaCode")}}</th>
-                    <th>{{__("common.InStock")}}</th>
+                    <th>{{__("common.UnderIncubation")}}</th>
                     <th>{{__("common.Notes")}}</th>
                     <th colspan="2">{{__("common.Action")}}</th>
                 </tr>
                 @foreach($Data as $item)
                 <tr class="text-center">
-                    <td>{{$item['BaglogCode']}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            {{$item['BaglogCode']}}
+                        </button>
+                        @include('Operator.Baglog.Partials.BaglogUsageDetail')
+                    </td>
                     <td>{{$item['ArrivalDate']}}</td>
                     <td>{{$item['Quantity']}}</td>
                     <td>
@@ -51,7 +56,12 @@
                         </button>
                         @include('Operator.Baglog.Partials.UpdateBaglogPartials')
                     </td>
-                    <td><a href="{{route('BaglogMonitoringDelete', ['id'=>$item['id'],])}}">{{__("common.Delete")}}</a></td>
+                    <td>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
+                            {{__("common.Delete")}}
+                        </button>
+                        @include('Operator.Baglog.Partials.DeleteBaglogConfirmation')
+                    </td>
                 </tr>
                 @endforeach
             </table>

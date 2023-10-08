@@ -21,7 +21,7 @@
             </div>
             @endif
         </div>
-
+        @include('Operator.Mylea.Partials.MonitoringSummary')
         <h2>{{__("monitoring.MyleaTitle")}}</h2>
         <div id="MonitoringTable" class="bg-white">
             <table class="table table-white" >
@@ -29,7 +29,7 @@
                     <th>{{__("monitoring.ProductionCode")}}</th>
                     <th>{{__("common.ProductionDate")}}</th>
                     <th>{{__("common.TotalTray")}}</th>
-                    <th>{{__("common.InStock")}}</th>
+                    <th>{{__("common.UnderIncubation")}}</th>
                     <th>{{__("common.Contamination")}}</th>
                     <th>{{__("common.Harvest")}}</th>
                     <th>{{__("common.FinishGood")}}</th>
@@ -40,7 +40,7 @@
                     <td>{{ $item['MyleaCode'] }}</td>
                     <td>{{ $item['ProductionDate'] }}</td>
                     <td>{{ $item['TotalTray'] }}</td>
-                    <td>{{ $item['TotalTray'] - ($item['TotalContamination'] + $item['TotalHarvest']) }}  </td>
+                    <td>{{ $item['InStock']}}  </td>
                     
                     @if ($item['TotalContamination'] > 0)
                         <td><a href="{{route('MyleaContaminationData', ['id'=>$item['id'],])}}">{{ $item['TotalContamination'] }}</a></td>

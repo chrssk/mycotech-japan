@@ -1,6 +1,7 @@
 <?php
     return [
         'InStock' => 'In Stock',
+        'UnderIncubation' => 'Under Incubation',
         'Action' => 'Action',
         'Update' => 'Update',
         'Delete' => 'Delete',
@@ -21,4 +22,7 @@
         'Number' => 'Num',
         'TotalContamination' => 'Total Contamination',
         'Total' => 'Total',
+        'Summary'=> 'Summary',
+        'ContaminationRate' => 'Contamination Rate',
+        'Pieces' => 'pcs',
     ];

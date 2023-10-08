@@ -1,6 +1,7 @@
 <?php
     return [
         'InStock' => '在庫あり',
+        'UnderIncubation' => 'インキュベーション中',
         'Action' => 'アクション',
         'Update' => '更新',
         'Delete' => '削除',
@@ -21,4 +22,7 @@
         'Number' => '番号',
         'TotalContamination' => '総汚染量',
         'Total' => '合計',
+        'Summary'=> '概要',
+        'ContaminationRate' => '汚染率',
+        'Pieces' => '個数',
     ];

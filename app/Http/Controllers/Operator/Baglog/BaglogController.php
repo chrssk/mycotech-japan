@@ -9,6 +9,7 @@ use App\Models\Baglog\Baglog;
 use App\Models\Baglog\UsedBaglog;
 use App\Models\Mylea\MyleaProduction;
 use App;
+use PhpParser\Node\Stmt\TryCatch;
 
 class BaglogController extends Controller
 {
@@ -79,12 +80,21 @@ class BaglogController extends Controller
 
     public function BaglogMonitoringUpdate(Request $request)
     {
-        Baglog::where('id', $request['id'])->update([
-            'ArrivalDate'=>$request['ArrivalDate'],
-            'Quantity' => $request['Quantity'],
-            'Notes' => $request['Notes']
-        ]);
-        return redirect(route('BaglogMonitoring'))->with('StatusUpdate', 'Data updated!');
+        try{
+            $BaglogCode = new BaglogLogic();
+            $BaglogCode = $BaglogCode->ValidateArrivalDate($request['id'], $request['ArrivalDate']);
+            Baglog::where('id', $request['id'])->update([
+                'BaglogCode'=>$BaglogCode,
+                'ArrivalDate'=>$request['ArrivalDate'],
+                'Quantity' => $request['Quantity'],
+                'Notes' => $request['Notes']
+            ]);
+            return redirect(route('BaglogMonitoring'))->with('StatusUpdate', 'Data updated!');
+
+        } catch(\Exception $e) {
+            return redirect(route('BaglogMonitoring'))->with('StatusUpdate', 'Data submission unsuccessfull ' . $e->getMessage() );
+        }
+
     }
 
     public function BaglogMonitoringDelete($id)

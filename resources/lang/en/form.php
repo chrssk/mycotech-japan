@@ -7,6 +7,8 @@
         'ContaminationData' => 'Contamination Data',
         'HarvestForm' => 'Harvest Form',
         'FinishGoodForm' => 'Finish Good Form',
+        'DeleteBaglog'=> 'Delete Baglog',
+        'DeleteBaglogConfirmation' => 'Are you sure you want to delete Baglog with ID',
         'DeleteMyleaHarvest' => 'Delete Mylea Harvest',
         'DeleteMyleaHarvestConfirmation' => 'Are you sure you want to delete Mylea Harvest with ID',
         'DeleteMyleaContamination' => 'Delete Mylea Contamination',

@@ -7,6 +7,8 @@
         'ContaminationData' => '汚染データ',
         'HarvestForm' => '収穫フォーム',
         'FinishGoodForm' => '良いフォームを仕上げる',
+        'DeleteBaglog'=> 'バッグログを削除',
+        'DeleteBaglogConfirmation' => 'IDを持つバッグログを削除してもよろしいですか？',
         'DeleteMyleaHarvest' => 'マイレア・ハーベストを削除',
         'DeleteMyleaHarvestConfirmation' => 'マイレアハーベストのIDを削除してもよろしいですか',
         'DeleteMyleaContamination' => 'マイレア汚染の除去',

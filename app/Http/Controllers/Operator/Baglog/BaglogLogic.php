@@ -55,6 +55,22 @@ class BaglogLogic
 
     }
 
+    public function ValidateArrivalDate($id, $ArrivalDateUpdate){
+        $RawCode = "";
+        $dat = Baglog::select([
+            'BaglogCode',
+            'ArrivalDate'
+        ])->where('id', $id)->get()->first();
+
+        if($dat['ArrivalDate'] != $ArrivalDateUpdate){
+            $date = date_create($ArrivalDateUpdate);
+            $RawCode = "BLJP".date_format($date, "ymd");
+        } else {
+            $RawCode = $dat['BaglogCode'];
+        }
+        return $RawCode;
+    }
+
     public function ManipCode($id, $RawCode){
         $len = strlen($id);
         if ($len < 3){

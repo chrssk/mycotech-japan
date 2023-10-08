@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css");
+    </style>
+    
 </head>
 <body>
     <div id="app">
@@ -73,15 +77,6 @@
                                 </li>
                             @endif
                         @else
-                            {{-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Language
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="langDropdown">
-                                    <a class="nav-link" href="#" onclick="changeLanguage('en')">{{ __('English') }}</a>
-                                    <a class="nav-link" href="#" onclick="changeLanguage('jp')">{{ __('Japanese') }}</a>
-                                </ul>
-                            </li> --}}
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -100,11 +95,25 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Lang - 
+                                    @if(session()->get('lang_code')=='jp')
+                                        jp 
+                                    @else 
+                                        en 
+                                    @endif 
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="langDropdown">
+                                    <a class="nav-link" href="#" onclick="changeLanguage('en')"><span class="flag-icon flag-icon-us flag-icon-squared"></span> {{ __('en') }}</a>
+                                    <a class="nav-link" href="#" onclick="changeLanguage('jp')"><span class="flag-icon flag-icon-jp flag-icon-squared"></span> {{ __('jp') }}</a>
+                                </ul>
+                            </li>
+                            {{-- <li class="nav-item dropdown">
                                 <select onchange="changeLanguage(this.value)" class="form-select col-2">
                                     <option {{session()->has('lang_code')?(session()->get('lang_code')=='en'?'selected':''):''}} value="en">English</option>
                                     <option {{session()->has('lang_code')?(session()->get('lang_code')=='jp'?'selected':''):''}} value="jp">Japanese</option>
                                 </select>
-                            </li>
+                            </li> --}}
                         @endguest
                     </ul>
                 </div>
