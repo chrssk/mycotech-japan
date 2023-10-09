@@ -20,7 +20,7 @@
                 </div>
             @endif
         </div>
-      
+        
         <h2>{{__("monitoring.BaglogTitle")}}</h2>
         <div id="MonitoringTable" class="bg-white">
             <table class="table table-white" >
@@ -36,7 +36,7 @@
                 @foreach($Data as $item)
                 <tr class="text-center">
                     <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $item['id'] }}">
                             {{$item['BaglogCode']}}
                         </button>
                         @include('Operator.Baglog.Partials.BaglogUsageDetail')

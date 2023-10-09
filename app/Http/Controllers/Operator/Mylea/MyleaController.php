@@ -17,7 +17,7 @@ class MyleaController extends Controller
 {   
     public function MyleaMonitoring()
     {
-        $Data = MyleaProduction::paginate(10);
+        $Data = MyleaProduction::orderBy('ProductionDate', 'desc')->paginate(10);
 
         foreach ($Data as $data) {
 
