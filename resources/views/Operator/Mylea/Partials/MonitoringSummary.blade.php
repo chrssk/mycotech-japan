@@ -8,7 +8,7 @@
             <div class="card-body">
                 <table width="100%"  style="font-size: 1.0rem;">
                     <tr>
-                        <td width="50%">{{__('common.Total')}} {{__('common.TotalMyleaIncubation')}}</td>
+                        <td width="50%">{{__('common.TotalMyleaIncubation')}}</td>
                         <td width="5%">:</td>
                         <td width="17%">{{$Data->sum('InStock')}}</td>
                         <td>{{__('common.Pieces')}}</td>
