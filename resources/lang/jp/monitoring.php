@@ -2,9 +2,9 @@
 
 return [
     'Home' => 'ホーム',
-    'Baglog' => 'バッグログ',
-    'BaglogTitle' => 'バッグログ・モニタリング',
-    'BaglogCode' => 'バッグログ・コード',
+    'Baglog' => '基材バッグ',
+    'BaglogTitle' => '基質バッグのモニタリング',
+    'BaglogCode' => '基材バッグコード',
 
     'Mylea' => 'ミレア',
     'MyleaCode' => 'ミレアコード',

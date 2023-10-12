@@ -1,14 +1,14 @@
 <?php
     return [
-        'BaglogInputForm' => 'Baglog Input Form',
+        'BaglogInputForm' => 'Substrate Bag Input Form',
         'MyleaProductionForm' => 'Mylea Production Form',
-        'AddBaglog' => 'Add Baglog',
+        'AddBaglog' => 'Add Substrate Bag',
         'ContaminationForm' => 'Contamination Form',
         'ContaminationData' => 'Contamination Data',
         'HarvestForm' => 'Harvest Form',
         'FinishGoodForm' => 'Finish Good Form',
-        'DeleteBaglog'=> 'Delete Baglog',
-        'DeleteBaglogConfirmation' => 'Are you sure you want to delete Baglog with ID',
+        'DeleteBaglog'=> 'Delete Substrate Bag',
+        'DeleteBaglogConfirmation' => 'Are you sure you want to delete Substrate Bag with ID',
         'DeleteMyleaHarvest' => 'Delete Mylea Harvest',
         'DeleteMyleaHarvestConfirmation' => 'Are you sure you want to delete Mylea Harvest with ID',
         'DeleteMyleaContamination' => 'Delete Mylea Contamination',

@@ -2,9 +2,9 @@
 
 return [
     'Home' => 'Home',
-    'Baglog' => 'Baglog',
-    'BaglogTitle' => 'Baglog Monitoring',
-    'BaglogCode' => 'Baglog Code',
+    'Baglog' => 'Substrate Bag',
+    'BaglogTitle' => 'Substrate Bag Monitoring',
+    'BaglogCode' => 'Substrate Bag Code',
 
     'Mylea' => 'Mylea',
     'MyleaCode' => 'Mylea Code',
