@@ -16,7 +16,7 @@
         'Harvest' => 'Harvest',
         'HarvestDate' => 'Harvest Date',
         'FinishGood' => 'Finish Good',
-        'TotalFinishGood'=> 'Total Finish Good',
+        'TotalFinishGood'=> 'Total Finished Goods',
         'FinishGoodDate' => 'Finish Good Date',
         'ContaminationDate' => 'Contamination Date',
         'Number' => 'Num',
@@ -25,4 +25,5 @@
         'Summary'=> 'Summary',
         'ContaminationRate' => 'Contamination Rate',
         'Pieces' => 'pcs',
+        'TotalMyleaIncubation' => 'Total Mylea Incubation',
     ];

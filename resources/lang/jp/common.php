@@ -25,4 +25,5 @@
         'Summary'=> '概要',
         'ContaminationRate' => '汚染率',
         'Pieces' => '個数',
+        'TotalMyleaIncubation' => 'トータル・マイレア・インキュベーション',
     ];
