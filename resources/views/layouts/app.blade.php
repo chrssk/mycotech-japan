@@ -7,7 +7,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>
+        {{-- {{ config('app.name', 'Laravel') }} --}}
+        MYCL Japan
+    </title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,11 +27,13 @@
     
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div id="app" >
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" > 
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{-- {{ config('app.name', 'Laravell') }} --}}
+                    <img src="{{ asset('images/tesjapan.png') }}" style="width:50%; height:50%">
+                    
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -96,16 +101,15 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Lang - 
                                     @if(session()->get('lang_code')=='jp')
-                                        jp 
+                                         JP 
                                     @else 
-                                        en 
+                                        EN
                                     @endif 
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="langDropdown">
-                                    <a class="nav-link" href="#" onclick="changeLanguage('en')"><span class="flag-icon flag-icon-us flag-icon-squared"></span> {{ __('en') }}</a>
-                                    <a class="nav-link" href="#" onclick="changeLanguage('jp')"><span class="flag-icon flag-icon-jp flag-icon-squared"></span> {{ __('jp') }}</a>
+                                    <a class="nav-link" href="#" onclick="changeLanguage('en')"><span class="flag-icon flag-icon-us flag-icon-squared"></span> EN </a>
+                                    <a class="nav-link" href="#" onclick="changeLanguage('jp')"><span class="flag-icon flag-icon-jp flag-icon-squared"></span> JP </a>
                                 </ul>
                             </li>
                             {{-- <li class="nav-item dropdown">

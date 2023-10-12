@@ -1,4 +1,4 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal{{ $item['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -14,7 +14,7 @@
                 @foreach ($item['Mylea'] as $data)
                     <tr>
                         <td><a href="{{route('MyleaProductionDetails', ['id'=>$data['id'],])}}">{{$data['MyleaCode']}}</a></td>
-                        <td>{{$data['TotalTray']}}</td>
+                        <td>{{$data['Total']}}</td>
                     </tr>
                 @endforeach
             </table>

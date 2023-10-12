@@ -63,7 +63,10 @@ class BaglogController extends Controller
 
     public function BaglogMonitoring()
     {
-        $Data = Baglog::paginate(10);
+        $Data = Baglog::orderBy('ArrivalDate', 'desc') // Mengurutkan berdasarkan ArrivalDate secara descending (terbaru dulu)
+        ->paginate(10);
+
+
 
         foreach ($Data as $data) {
             $data['Mylea'] = UsedBaglog::where('BaglogID', $data['id'])
