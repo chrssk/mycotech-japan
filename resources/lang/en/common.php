@@ -17,6 +17,7 @@
         'HarvestDate' => 'Harvest Date',
         'FinishGood' => 'Finish Good',
         'TotalFinishGood'=> 'Total Finished Goods',
+        'FinishedGoods'=> 'Finished Goods',
         'FinishGoodDate' => 'Finish Good Date',
         'ContaminationDate' => 'Contamination Date',
         'Number' => 'Num',

@@ -17,6 +17,7 @@
         'HarvestDate'=> '収穫日',
         'FinishGood' => '良い仕上がり',
         'TotalFinishGood'=> '総仕上がり',
+        'FinishedGoods'=> '完成品',
         'FinishGoodDate' => 'フィニッシュ・グッド・デート',
         'ContaminationDate' => '汚染日',
         'Number' => '番号',

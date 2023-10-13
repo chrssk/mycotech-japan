@@ -26,6 +26,12 @@
                         <td>{{__('common.Pieces')}}</td>
                     </tr>
                     <tr>
+                        <td>{{__('common.TotalFinishGood')}}</td>
+                        <td>:</td>
+                        <td>{{$Data->sum('TotalFinishGood')}}</td>
+                        <td>{{__('common.Pieces')}}</td>
+                    </tr>
+                    <tr>
                         <td>{{__('common.Contamination')}}</td>
                         <td>:</td>
                         <td>{{$Data->sum('TotalContamination')}}</td>
