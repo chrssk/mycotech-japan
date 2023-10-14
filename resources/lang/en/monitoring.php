@@ -9,11 +9,14 @@ return [
     'Mylea' => 'Mylea',
     'MyleaCode' => 'Mylea Code',
     'MyleaTitle' => 'Mylea Monitoring',
+    'MyleaIncubation' => 'Incubation Monitoring',
     'ProductionCode' => 'Production Code',
     'ContaminationData'=> 'Contamination Data',
     'HarvestData' => 'Harvest Data',
     
     'FinishGoodCode' => 'Finish Good Code',
     'FinishGoodData'=> 'Finish Good Data',
+
+    'PostTreatmentTitle'=> 'Post Treatment Monitoring'
     
 ];

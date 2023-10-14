@@ -2,6 +2,8 @@
     return [
         'BaglogInputForm' => '基板バッグ入力フォーム',
         'MyleaProductionForm' => 'マイレア制作フォーム',
+        'ProductionForm' => '制作フォーム',
+        'PostTreatmentForm' => '治療後フォーム',
         'AddBaglog' => '基質バッグの追加',
         'ContaminationForm' => '汚染票',
         'ContaminationData' => '汚染データ',
