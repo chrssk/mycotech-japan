@@ -11,6 +11,7 @@
         'ArrivalDate' => 'Arrival Date',
         'Quantity' => 'Quantity',
         'ProductionDate' => 'Production Date',
+        'StartDate' => 'Start Date',
         'TotalTray' => 'Total Tray',
         'Contamination' => 'Contamination',
         'Harvest' => 'Harvest',
@@ -27,4 +28,5 @@
         'ContaminationRate' => 'Contamination Rate',
         'Pieces' => 'pcs',
         'TotalMyleaIncubation' => 'Total Mylea Incubation',
+        'Available' => 'Available',
     ];

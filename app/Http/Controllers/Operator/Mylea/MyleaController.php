@@ -35,10 +35,10 @@ class MyleaController extends Controller
             ->where('mylea_harvest.MyleaID',$data['id'])
             ->sum('mylea_harvest.Total');
 
-            // Lakukan JOIN ke tabel finish_good dan hitung Total
-            $data['TotalFinishGood'] = MyleaHarvest::join('finish_good', 'mylea_harvest.id', '=', 'finish_good.HarvestID')
-                ->where('mylea_harvest.MyleaID', $data['id'])
-                ->sum('finish_good.Total');
+            // // Lakukan JOIN ke tabel finish_good dan hitung Total
+            // $data['TotalFinishGood'] = MyleaHarvest::join('finish_good', 'mylea_harvest.id', '=', 'finish_good.HarvestID')
+            //     ->where('mylea_harvest.MyleaID', $data['id'])
+            //     ->sum('finish_good.Total');
 
             $data['InStock'] = $data['TotalTray'] - ($data['TotalContamination'] + $data['TotalHarvest']);
         }
@@ -262,9 +262,9 @@ class MyleaController extends Controller
         ->where('mylea_harvest.MyleaID',$id)
         ->get();
 
-        foreach($MyleaHarvestData as $data) {
-            $data['TotalFinishGood'] = FinishGood::where('HarvestID', $data['id'])->sum('Total');
-        }
+        // foreach($MyleaHarvestData as $data) {
+        //     $data['TotalFinishGood'] = FinishGood::where('HarvestID', $data['id'])->sum('Total');
+        // }
     
         return view('Operator.Mylea.HarvestDetails', [
             'Data'=>$MyleaHarvestData,

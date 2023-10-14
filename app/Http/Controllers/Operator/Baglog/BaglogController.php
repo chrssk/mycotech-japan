@@ -22,7 +22,7 @@ class BaglogController extends Controller
         try {
 
             $date = date_create($request['ArrivalDate']);
-            $RawCode = "BLJP".date_format($date, "ymd");
+            $RawCode = "SBJP".date_format($date, "ymd");
 
             Baglog::create([
                 'BaglogCode' => $RawCode, 

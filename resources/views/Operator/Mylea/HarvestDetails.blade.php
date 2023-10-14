@@ -27,21 +27,17 @@
         <div id="ContaminationTable" class="bg-white">
             <table class="table table-white" >
                 <tr class="text-center">
-                    <th>{{__('common.Number')}}</th>
                     <th>{{__('monitoring.BaglogCode')}}</th>
                     <th>{{__('common.HarvestDate')}}</th>
                     <th>{{__('common.Harvest')}}</th>
-                    <th>{{__('common.TotalFinishGood')}}</th>
                     <th>{{__('common.Notes')}}</th>
                     <th colspan="4">{{__('common.Action')}}</th>
                 </tr>
                 @foreach($Data as $item)
                 <tr class="text-center">
-                    <td> {{ $item['id']}} </td>
                     <td> {{ $item['BaglogCode']}} </td>
                     <td> {{ $item['HarvestDate']}} </td>
                     <td> {{ $item['Total']}} </td>
-                    <td> {{ $item['TotalFinishGood']}} </td>
                     <td> {{ $item['Notes']}} </td>
                     {{-- <td>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal">
@@ -55,8 +51,6 @@
                         </button>
                         @include('Operator.Mylea.Partials.DeleteHarvestConfirm') 
                     </td>
-                    <td><a href="{{route('FinishGoodForm', ['id'=>$item['id'],])}}">{{__('common.FinishGood')}}</a></td>
-                    <td><a href="{{route('FinishGoodData', ['id'=>$item['id'],])}}">{{__('monitoring.FinishGoodData')}}</a></td>
                 </tr>
                @endforeach
             </table>

@@ -32,7 +32,6 @@
                     <th>{{__("common.UnderIncubation")}}</th>
                     <th>{{__("common.Contamination")}}</th>
                     <th>{{__("common.Harvest")}}</th>
-                    <th>{{__("common.FinishedGoods")}}</th>
                     <th colspan="2">{{__("common.Action")}}</th>
                 </tr>
                 @foreach($Data as $item)
@@ -53,8 +52,7 @@
                     @else
                         <td>{{ $item['TotalHarvest'] }}</td>
                     @endif
-
-                    <td>{{ $item['TotalFinishGood'] }}</td>
+                    
                     <td><a href="{{route('MyleaProductionDetails', ['id'=>$item['id'],])}}" class="btn btn-primary">{{__("common.Update")}}</a></td>
                     <td><a href="{{route('MyleaContaminationForm', ['id'=>$item['id'],])}}" class="btn btn-primary">{{__("form.ContaminationForm")}}</a></td>
                     <td><a href="{{route('MyleaHarvestForm', ['id'=>$item['id'],])}}" class="btn btn-primary">{{__("form.HarvestForm")}}</a></td>

@@ -11,6 +11,7 @@
         'ArrivalDate' => '到着日',
         'Quantity' => '数量',
         'ProductionDate' => '制作日',
+        'StartDate' => '開始日',
         'TotalTray' => 'トレイ',
         'Contamination' => '汚染',
         'Harvest' => '収穫',
@@ -27,4 +28,5 @@
         'ContaminationRate' => '汚染率',
         'Pieces' => '個数',
         'TotalMyleaIncubation' => 'トータル・マイレア・インキュベーション',
+        'Available' => '利用可能',
     ];

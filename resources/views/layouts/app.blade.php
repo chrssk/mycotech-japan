@@ -60,8 +60,10 @@
                                     {{__('monitoring.Mylea')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="myleaDropdown">
-                                    <li><a class="dropdown-item" href="{{route('MyleaProductionForm')}}">{{__('form.MyleaProductionForm')}}</a></li>
-                                    <li><a class="dropdown-item" href="{{route('MyleaMonitoring')}}">{{__('monitoring.MyleaTitle')}}</a></li>
+                                    <li><a class="dropdown-item" href="{{route('MyleaProductionForm')}}">{{__('form.ProductionForm')}}</a></li>
+                                    <li><a class="dropdown-item" href="{{route('MyleaMonitoring')}}">{{__('monitoring.MyleaIncubation')}}</a></li>
+                                    <li><a class="dropdown-item" href="{{route('PostTreatmentForm')}}">{{__('form.PostTreatmentForm')}}</a></li>
+                                    <li><a class="dropdown-item" href="#">{{__('monitoring.PostTreatmentTitle')}}</a></li>
                                 </ul>
                             </li>
                         @endguest

@@ -51,4 +51,8 @@ Route::middleware(['auth'])->group(function (){
     Route::post('/en/finish-good-submit}', [App\Http\Controllers\Operator\FinishGood\FinishGoodController::class, 'FinishGoodSubmit'])->name('FinishGoodSubmit');
     Route::get('/en/finish-good-data/{id}', [App\Http\Controllers\Operator\FinishGood\FinishGoodController::class, 'FinishGoodData'])->name('FinishGoodData')->middleware('Language');
     Route::get('/en/finish-good-delete/{id}/{details}', [App\Http\Controllers\Operator\FinishGood\FinishGoodController::class, 'FinishGoodDelete'])->name('FinishGoodDelete');
+
+    // Operator Post Treatment 
+    Route::get('/en/post-treatment-form', [App\Http\Controllers\Operator\PostTreatment\PostTreatmentController::class, 'PostTreatmentForm'])->name('PostTreatmentForm')->middleware('Language');
+    Route::post('/en/post-treatment-submit', [App\Http\Controllers\Operator\PostTreatment\PostTreatmentController::class, 'PostTreatmentSubmit'])->name('PostTreatmentSubmit');
 });
