@@ -81,9 +81,27 @@ class PostTreatmentController extends Controller
             }
         }
 
+        //update option
+        $MyleaHarvestOption = MyleaHarvest::join('used_baglog', function ($join) {
+            $join->on('mylea_harvest.MyleaID', '=', 'used_baglog.MyleaID')
+                ->on('mylea_harvest.BaglogID', '=', 'used_baglog.BaglogID');
+        })
+        ->join('mylea_production', 'mylea_production.id', '=', 'mylea_harvest.MyleaID')
+        ->select(
+            'mylea_harvest.Total as TotalHarvest',
+            'mylea_harvest.*', 
+            'mylea_production.MyleaCode'
+        )
+        ->get();
+
+        foreach($MyleaHarvestOption as $data) {
+            $data['UsedHarvest'] = PostTreatmentDetails::where('HarvestID', $data['id'])->sum('Total');
+            $data['TotalHarvest'] =  $data['TotalHarvest'] - $data['UsedHarvest'] ;
+        }
 
         return view('Operator.PostTreatment.PostTreatmentMonitoring', [
             'Data' => $Data,
+            'MyleaOption' => $MyleaHarvestOption,
         ]);
     }
 
@@ -99,6 +117,21 @@ class PostTreatmentController extends Controller
             ]);
     
             return redirect(route('PostTreatmentMonitoring'))->with('Success', 'Data submitted!');
+        } catch (\Exception $e) {
+
+            //PostTreatment::where('id', $id)->delete();
+            return redirect(route('PostTreatmentMonitoring'))->with('Error', 'Message : ' . $e->getMessage());
+        }
+      
+    }
+
+    public function PostTreatmentDelete($id)
+    {
+        try {
+
+            PostTreatment::where('id', $id)->Delete();
+    
+            return redirect(route('PostTreatmentMonitoring'))->with('Success', 'Data deleted!');
         } catch (\Exception $e) {
 
             //PostTreatment::where('id', $id)->delete();

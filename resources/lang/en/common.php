@@ -29,4 +29,8 @@
         'Pieces' => 'pcs',
         'TotalMyleaIncubation' => 'Total Mylea Incubation',
         'Available' => 'Available',
+        'PostTreatmentDate' => 'Post Treatment Date',
+        'Reject' => 'Reject',
+        'UnderPostTreatment' => 'Under Post Treatment',
+        
     ];

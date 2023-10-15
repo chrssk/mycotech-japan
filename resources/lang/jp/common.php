@@ -29,4 +29,7 @@
         'Pieces' => '個数',
         'TotalMyleaIncubation' => 'トータル・マイレア・インキュベーション',
         'Available' => '利用可能',
+        'PostTreatmentDate' => '治療後の日付',
+        'Reject' => '却下',
+        'UnderPostTreatment' => '後処理中',
     ];
