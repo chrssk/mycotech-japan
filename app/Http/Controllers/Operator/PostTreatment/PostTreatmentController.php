@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Operator\PostTreatment;
 
 use App\Http\Controllers\Controller;
 use App\Models\Mylea\MyleaHarvest;
+use App\Models\Mylea\MyleaProduction;
 use App\Models\PostTreatment\PostTreatment;
 use App\Models\PostTreatment\PostTreatmentDetails;
 use Illuminate\Http\Request;
@@ -52,12 +53,56 @@ class PostTreatmentController extends Controller
                     'Total' => $item['Total'],
                 ]);
             }
-            return redirect(route('PostTreatmentForm'))->with('Success', 'Data submitted!');
+            return redirect(route('PostTreatmentMonitoring'))->with('Success', 'Data submitted!');
         } catch (\Exception $e) {
 
             PostTreatment::where('id', $id)->delete();
 
             return redirect(route('PostTreatmentForm'))->with('Error', 'Message : ' . $e->getMessage());
+        }
+      
+    }
+
+    public function PostTreatmentMonitoring(){
+        $Data = PostTreatment::select([
+            'post_treatment.id',
+            'post_treatment.StartDate',
+            'post_treatment.Reject',
+            'post_treatment.FinishGood',
+            'post_treatment.Notes',
+        ])->with('details')->get();
+
+        foreach($Data as $item){
+            foreach($item['details'] as $dat){
+                $HarvestData = MyleaHarvest::select(['HarvestDate', 'MyleaID'])->where('id', $dat['HarvestID'])->first();
+                $dat['HarvestDate'] = $HarvestData->HarvestDate;
+                $MyleaData = MyleaProduction::select(['MyleaCode'])->where('id', $HarvestData->MyleaID)->first();
+                $dat['MyleaCode'] = $MyleaData->MyleaCode;
+            }
+        }
+
+
+        return view('Operator.PostTreatment.PostTreatmentMonitoring', [
+            'Data' => $Data,
+        ]);
+    }
+
+    public function PostTreatmentUpdate(Request $request)
+    {
+        try {
+
+            PostTreatment::where('id', $request['id'])->update([
+                'StartDate' => $request['StartDate'],
+                'Reject' => $request['Reject'],
+                'FinishGood' => $request['FinishGood'],
+                'Notes' => $request['Notes']
+            ]);
+    
+            return redirect(route('PostTreatmentMonitoring'))->with('Success', 'Data submitted!');
+        } catch (\Exception $e) {
+
+            //PostTreatment::where('id', $id)->delete();
+            return redirect(route('PostTreatmentMonitoring'))->with('Error', 'Message : ' . $e->getMessage());
         }
       
     }

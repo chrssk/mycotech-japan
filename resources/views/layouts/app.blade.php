@@ -63,7 +63,7 @@
                                     <li><a class="dropdown-item" href="{{route('MyleaProductionForm')}}">{{__('form.ProductionForm')}}</a></li>
                                     <li><a class="dropdown-item" href="{{route('MyleaMonitoring')}}">{{__('monitoring.MyleaIncubation')}}</a></li>
                                     <li><a class="dropdown-item" href="{{route('PostTreatmentForm')}}">{{__('form.PostTreatmentForm')}}</a></li>
-                                    <li><a class="dropdown-item" href="#">{{__('monitoring.PostTreatmentTitle')}}</a></li>
+                                    <li><a class="dropdown-item" href="{{route('PostTreatmentMonitoring')}}">{{__('monitoring.PostTreatmentTitle')}}</a></li>
                                 </ul>
                             </li>
                         @endguest

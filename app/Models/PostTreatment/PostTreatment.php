@@ -16,4 +16,9 @@ class PostTreatment extends Model
         'FinishGood',
         'Notes',
     ];
+
+    public function details()
+    {
+        return $this->hasMany(PostTreatmentDetails::class, 'PostTreatmentID');
+    }
 }

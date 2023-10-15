@@ -17,4 +17,9 @@ class MyleaHarvest extends Model
         'Total', 
         'Notes', 
     ];
+
+    public function postTreatmenUsage()
+    {
+        return $this->hasMany(PostTreatmentDetails::class, 'HarvestID');
+    }
 }

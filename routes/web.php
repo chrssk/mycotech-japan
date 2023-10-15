@@ -55,4 +55,6 @@ Route::middleware(['auth'])->group(function (){
     // Operator Post Treatment 
     Route::get('/en/post-treatment-form', [App\Http\Controllers\Operator\PostTreatment\PostTreatmentController::class, 'PostTreatmentForm'])->name('PostTreatmentForm')->middleware('Language');
     Route::post('/en/post-treatment-submit', [App\Http\Controllers\Operator\PostTreatment\PostTreatmentController::class, 'PostTreatmentSubmit'])->name('PostTreatmentSubmit');
+    Route::get('/en/post-treatment-monitoring', [App\Http\Controllers\Operator\PostTreatment\PostTreatmentController::class, 'PostTreatmentMonitoring'])->name('PostTreatmentMonitoring')->middleware('Language');
+    Route::post('/en/post-treatment-update', [App\Http\Controllers\Operator\PostTreatment\PostTreatmentController::class, 'PostTreatmentUpdate'])->name('PostTreatmentUpdate');
 });
