@@ -56,8 +56,6 @@ class PostTreatmentController extends Controller
             return redirect(route('PostTreatmentMonitoring'))->with('Success', 'Data submitted!');
         } catch (\Exception $e) {
 
-            PostTreatment::where('id', $id)->delete();
-
             return redirect(route('PostTreatmentForm'))->with('Error', 'Message : ' . $e->getMessage());
         }
       
