@@ -56,7 +56,11 @@
                             <td rowspan="{{count($item['details'])+1}}">@if($item['FinishGood'] == "") 0 @else {{$item['FinishGood']}} @endif</td>
                             <td rowspan="{{count($item['details'])+1}}">@if($item['Notes'] == "") - @else {{$item['Notes']}} @endif</td>
                             <td rowspan="{{count($item['details'])+1}}">
-                                <a href="{{route('PostTreatmentDelete', ['id'=>$item['id']])}}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
+                                    {{__("common.Delete")}}
+                                </button>
+                                @include('Operator.PostTreatment.Partials.DeletePostTreatmentConfirmation')
+                                
                             </td>
                         @endif
                     </tr>

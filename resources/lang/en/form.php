@@ -17,6 +17,8 @@
         'DeleteMyleaContaminationConfirmation' => 'Are you sure you want to delete Mylea Contamination with ID',
         'DeleteFinishGood' => 'Delete Finish Good',
         'DeleteFinishGoodConfirmation'=> 'Are you sure you want to delete Finish Good with ID',
+        'DeletePostTreatment'=> 'Delete Post Treatment',
+        'DeletePostTreatmentConfirmation' => 'Are you sure you want to delete Post Treatment with ID',
 
 
     ];
