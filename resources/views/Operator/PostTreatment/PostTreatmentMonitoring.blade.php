@@ -56,7 +56,7 @@
                             <td rowspan="{{count($item['details'])+1}}">@if($item['FinishGood'] == "") 0 @else {{$item['FinishGood']}} @endif</td>
                             <td rowspan="{{count($item['details'])+1}}">@if($item['Notes'] == "") - @else {{$item['Notes']}} @endif</td>
                             <td rowspan="{{count($item['details'])+1}}">
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal{{ $item['id'] }}">
                                     {{__("common.Delete")}}
                                 </button>
                                 @include('Operator.PostTreatment.Partials.DeletePostTreatmentConfirmation')

@@ -57,7 +57,7 @@
                         @include('Operator.Baglog.Partials.UpdateBaglogPartials')
                     </td>
                     <td>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal{{ $item['id'] }}">
                             {{__("common.Delete")}}
                         </button>
                         @include('Operator.Baglog.Partials.DeleteBaglogConfirmation')
