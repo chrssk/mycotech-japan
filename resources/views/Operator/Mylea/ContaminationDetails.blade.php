@@ -29,7 +29,7 @@
                     {{-- <th>{{__('common.Number')}}</th> --}}
                     <th>{{__('monitoring.BaglogCode')}}</th>
                     <th>{{__('common.ContaminationDate')}}</th>
-                    <th>{{__('common.TotalContamination')}}</th>
+                    <th>{{__('common.Contamination')}}</th>
                     <th>{{__('common.Notes')}}</th>
                     <th colspan="4">{{__('common.Action')}}</th>
                 </tr>
@@ -41,7 +41,14 @@
                     <td> {{ $item['Total']}} </td>
                     <td> {{ $item['Notes']}} </td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#DeleteModal{{$item['id']}}">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#UpdateModal{{$item['id']}}">
+                           {{__('common.Update')}}
+                        </button>
+                        @include('Operator.Mylea.Partials.UpdateContamination')
+                        {{-- @include('Operator.Mylea.Partials.DeleteContaminationConfirm')  --}}
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteModal{{$item['id']}}">
                            {{__('common.Delete')}}
                         </button>
                         @include('Operator.Mylea.Partials.DeleteContaminationConfirm') 

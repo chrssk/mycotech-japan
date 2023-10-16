@@ -16,6 +16,7 @@
         'Contamination' => '汚染',
         'Harvest' => '収穫',
         'HarvestDate'=> '収穫日',
+        'RemainingHarvest'=> '残りの収穫',
         'FinishGood' => '良い仕上がり',
         'TotalFinishGood'=> '総仕上がり',
         'FinishedGoods'=> '完成品',

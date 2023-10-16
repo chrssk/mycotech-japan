@@ -16,6 +16,7 @@
         'Contamination' => 'Contamination',
         'Harvest' => 'Harvest',
         'HarvestDate' => 'Harvest Date',
+        'RemainingHarvest' => 'Remaining Harvest',
         'FinishGood' => 'Finish Good',
         'TotalFinishGood'=> 'Total Finished Goods',
         'FinishedGoods'=> 'Finished Goods',

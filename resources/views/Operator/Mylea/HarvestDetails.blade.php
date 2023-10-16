@@ -46,7 +46,13 @@
                         @include('Operator.Baglog.Partials.UpdateBaglogPartials')
                     </td> --}}
                     <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#DeleteModal{{$item['id']}}">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#UpdateModal{{$item['id']}}">
+                           {{__('common.Update')}}
+                        </button>
+                        @include('Operator.Mylea.Partials.UpdateHarvest')
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteModal{{$item['id']}}">
                             {{__('common.Delete')}}
                         </button>
                         @include('Operator.Mylea.Partials.DeleteHarvestConfirm') 

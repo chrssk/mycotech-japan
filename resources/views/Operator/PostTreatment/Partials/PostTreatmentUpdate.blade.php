@@ -9,7 +9,7 @@
             <div id="PostTreatmentUpdateForm">
                 <form action="{{route('PostTreatmentUpdate')}}" method="POST">
                     @csrf
-                    <input type="" name="id" value="{{$item['id']}}">
+                    <input type="hidden" name="id" value="{{$item['id']}}">
                     <div class="mb-3">
                       <label for="StartDate" class="form-label">{{__('common.StartDate')}}</label>
                       <input type="date" class="form-control" id="StartDate" name="StartDate" value="{{$item['StartDate']}}" required>

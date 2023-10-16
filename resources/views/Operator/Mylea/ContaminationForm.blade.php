@@ -40,18 +40,6 @@
                     <th>{{__('common.Quantity')}}</th>
                     <th>{{__('common.Notes')}}</th>
                 </tr>
-                {{-- <tr>
-                    <td>
-                        <select name="data[0][BaglogID]" class="form-select" id="BaglogCode">
-                            @foreach ($BaglogData as $item)
-                                <option value="{{$item['id']}}">{{$item['BaglogCode']}} {{__('common.InStock')}} :{{$item['InStock']}}</option>
-                            @endforeach
-                        </select>
-                    </td>
-                    <td><input type="number" name="data[0][Quantity]" class="form-control" /></td>
-                    <td><input type="text" name="data[0][Notes]" class="form-control" /></td>
-                    <td><button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">{{__('form.AddBaglog')}}</button></td>
-                </tr> --}}
                 <tr>
                     <td>
                         <select name="data[0][BaglogID]" class="form-select" id="BaglogCode">

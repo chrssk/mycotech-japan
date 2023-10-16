@@ -30,12 +30,12 @@
         <table class="table">
             <tr>
                 <th>{{__('common.PostTreatmentDate')}}</th>
-                <th>{{__('common.Reject')}}t</th>
-                <th>{{__('common.FinishedGoods')}}</th>
-                <th>{{__('common.Notes')}}</th>
                 <th>{{__('monitoring.MyleaCode')}}</th>
                 <th>{{__('common.HarvestDate')}}</th>
                 <th>{{__('common.UnderPostTreatment')}}</th>
+                <th>{{__('common.Reject')}}</th>
+                <th>{{__('common.FinishedGoods')}}</th>
+                <th>{{__('common.Notes')}}</th>
                 <th>{{__('common.Action')}}</th>
             </tr>
             @foreach ($Data as $item)

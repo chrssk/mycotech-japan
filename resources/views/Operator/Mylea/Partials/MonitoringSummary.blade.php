@@ -19,6 +19,13 @@
                         <td>{{$Data->sum('TotalHarvest')}}</td>
                         <td>{{__('common.Pieces')}}</td>
                     </tr>
+
+                    <tr>
+                        <td>{{__('common.Total')}} {{__('common.RemainingHarvest')}}</td>
+                        <td>:</td>
+                        <td>{{$Data->sum('RemainingHarvest')}}</td>
+                        <td>{{__('common.Pieces')}}</td>
+                    </tr>
                     <tr>
                         <td>{{__('common.TotalTray')}}</td>
                         <td>:</td>
@@ -28,7 +35,7 @@
                     <tr>
                         <td>{{__('common.TotalFinishGood')}}</td>
                         <td>:</td>
-                        <td>{{$Data->sum('TotalFinishGood')}}</td>
+                        <td> {{ $TotalFinishGood }}</td>
                         <td>{{__('common.Pieces')}}</td>
                     </tr>
                     <tr>

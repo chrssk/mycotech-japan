@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Operator\Baglog\BaglogLogic;
 use App\Models\Mylea\FinishGood;
 use App\Models\Mylea\MyleaContamination;
+use App\Models\PostTreatment\PostTreatment;
+use PostTreatmentDetails;
 
 class MyleaController extends Controller
 {   
@@ -35,16 +37,25 @@ class MyleaController extends Controller
             ->where('mylea_harvest.MyleaID',$data['id'])
             ->sum('mylea_harvest.Total');
 
-            // // Lakukan JOIN ke tabel finish_good dan hitung Total
-            // $data['TotalFinishGood'] = MyleaHarvest::join('finish_good', 'mylea_harvest.id', '=', 'finish_good.HarvestID')
-            //     ->where('mylea_harvest.MyleaID', $data['id'])
-            //     ->sum('finish_good.Total');
+            $data['UsedHarvest'] = MyleaHarvest::join('used_baglog', function ($join) {
+                $join->on('mylea_harvest.MyleaID', '=', 'used_baglog.MyleaID')
+                    ->on('mylea_harvest.BaglogID', '=', 'used_baglog.BaglogID');
+            })
+            ->where('mylea_harvest.MyleaID',$data['id'])
+            ->join('post_treatment_details', 'mylea_harvest.id', '=', 'post_treatment_details.HarvestID')
+            ->sum('post_treatment_details.Total');
+
+            $data['RemainingHarvest'] = $data['TotalHarvest'] - $data['UsedHarvest'];
 
             $data['InStock'] = $data['TotalTray'] - ($data['TotalContamination'] + $data['TotalHarvest']);
         }
 
+        $TotalFinishGood = PostTreatment::all()->sum('FinishGood');
+
+
         return view('Operator.Mylea.Monitoring', [
             'Data' => $Data,
+            'TotalFinishGood' => $TotalFinishGood
         ]);
     }
 
@@ -173,6 +184,29 @@ class MyleaController extends Controller
        
     }
 
+    public function MyleaContaminationUpdate(Request $request)
+    {
+        try {
+            $request->validate([
+                'ContaminationDate'=> 'Required',
+                'BaglogID'=> 'Required',
+            ]);
+            
+
+            MyleaContamination::where('id', $request['id'])->update([
+                'BaglogID'=> $request['BaglogID'],
+                'ContaminationDate'=> $request['ContaminationDate'],
+                'Notes'=> $request['Notes'],
+                'Total'=> $request['Total']
+            ]);
+
+            return redirect(route('MyleaMonitoring'))->with('Success', 'Update Contamination Data Success!');
+        } catch (\Exception $e) {
+            return redirect(route('MyleaMonitoring'))->with('Error', 'Message : '. $e->getMessage());
+        }
+       
+    }
+
     public function MyleaContaminationData($id)
     {
         $MyleaDetails = MyleaProduction::where('id', $id)->first();
@@ -186,9 +220,15 @@ class MyleaController extends Controller
         ->where('mylea_contamination.MyleaID',$id)
         ->get();
 
+        $UsedBaglogOption = UsedBaglog::join('baglog', 'baglog.id', '=', 'used_baglog.BaglogID')
+        ->where('used_baglog.MyleaID', $id)
+        ->get();
+
+
         return view('Operator.Mylea.ContaminationDetails', [
             'Data'=>$MyleaContaminationData,
             'Details'=>$MyleaDetails,
+            'UsedBaglog'=> $UsedBaglogOption
             
         ]);
     }
@@ -244,14 +284,32 @@ class MyleaController extends Controller
        
     }
 
+    public function MyleaHarvestUpdate(Request $request)
+    {
+        try {
+            $request->validate([
+                'HarvestDate'=> 'Required',
+                'BaglogID'=> 'Required',
+            ]);
+            
+
+            MyleaHarvest::where('id', $request['id'])->update([
+                'BaglogID'=> $request['BaglogID'],
+                'HarvestDate'=> $request['HarvestDate'],
+                'Notes'=> $request['Notes'],
+                'Total'=> $request['Total']
+            ]);
+
+            return redirect(route('MyleaMonitoring'))->with('Success', 'Update Harvest Data Success!');
+        } catch (\Exception $e) {
+            return redirect(route('MyleaMonitoring'))->with('Error', 'Message : '. $e->getMessage());
+        }
+       
+    }
+
     public function MyleaHarvestData($id)
     {
         $MyleaDetails = MyleaProduction::where('id', $id)->first();
-        // $MyleaHarvestData = MyleaHarvest::select('mylea_harvest.*', 'mylea_production.MyleaCode', 'baglog.BaglogCode')
-        // ->join('mylea_production', 'mylea_harvest.MyleaID', '=', 'mylea_production.id')
-        // ->join('baglog', 'mylea_harvest.BaglogID', '=', 'baglog.id')
-        // ->where('mylea_harvest.MyleaID', $id)
-        // ->get();
 
         $MyleaHarvestData = MyleaHarvest::select('mylea_harvest.*', 'baglog.BaglogCode')
         ->join('used_baglog', function ($join) {
@@ -262,13 +320,14 @@ class MyleaController extends Controller
         ->where('mylea_harvest.MyleaID',$id)
         ->get();
 
-        // foreach($MyleaHarvestData as $data) {
-        //     $data['TotalFinishGood'] = FinishGood::where('HarvestID', $data['id'])->sum('Total');
-        // }
-    
+        $UsedBaglogOption = UsedBaglog::join('baglog', 'baglog.id', '=', 'used_baglog.BaglogID')
+        ->where('used_baglog.MyleaID', $id)
+        ->get();
+
         return view('Operator.Mylea.HarvestDetails', [
             'Data'=>$MyleaHarvestData,
             'Details'=>$MyleaDetails,
+            'UsedBaglog'=> $UsedBaglogOption,
         ]);
     }
 
