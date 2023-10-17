@@ -1,7 +1,7 @@
 <?php
     return [
         'InStock' => 'In Stock',
-        'UnderIncubation' => 'Under Incubation',
+        'UnderIncubation' => 'Under Substrate Bag Incubation',
         'Action' => 'Action',
         'Update' => 'Update',
         'Delete' => 'Delete',

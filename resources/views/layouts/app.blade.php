@@ -105,7 +105,9 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     @if(session()->get('lang_code')=='jp')
-                                         JP 
+                                        JP 
+                                    @elseif (session()->get('lang_code')=='id')
+                                        ID
                                     @else 
                                         EN
                                     @endif 
@@ -113,6 +115,7 @@
                                 <ul class="dropdown-menu" aria-labelledby="langDropdown">
                                     <a class="nav-link" href="#" onclick="changeLanguage('en')"><span class="flag-icon flag-icon-us flag-icon-squared"></span> EN </a>
                                     <a class="nav-link" href="#" onclick="changeLanguage('jp')"><span class="flag-icon flag-icon-jp flag-icon-squared"></span> JP </a>
+                                    <a class="nav-link" href="#" onclick="changeLanguage('id')"><span class="flag-icon flag-icon-id flag-icon-squared"></span> ID </a>
                                 </ul>
                             </li>
                             {{-- <li class="nav-item dropdown">

@@ -1,7 +1,7 @@
 <?php
     return [
         'InStock' => '在庫あり',
-        'UnderIncubation' => 'インキュベーション中',
+        'UnderIncubation' => 'アンダー・サブストレート・バッグ・インキュベーション',
         'Action' => 'アクション',
         'Update' => '更新',
         'Delete' => '削除',
