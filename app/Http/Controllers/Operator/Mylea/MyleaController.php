@@ -14,12 +14,41 @@ use App\Models\Mylea\FinishGood;
 use App\Models\Mylea\MyleaContamination;
 use App\Models\PostTreatment\PostTreatment;
 use PostTreatmentDetails;
+use Carbon\Carbon;
 
 class MyleaController extends Controller
 {   
-    public function MyleaMonitoring()
+    public function MyleaDashboard(){
+        $date = Carbon::now();
+        $date->toDateString();
+        $Data = MyleaProduction::orderBy('ProductionDate', 'desc')->whereYear('ProductionDate', $date)->get();
+        foreach($Data as $item){
+            $item['TotalContamination'] = MyleaContamination::where('mylea_contamination.MyleaID',$item['id'])->get()->sum('Total');
+            $item['TotalHarvest']= MyleaHarvest::where('mylea_harvest.MyleaID',$item['id'])->get()->sum('Total');
+            $item['ProductionDate'] = substr($item['ProductionDate'], 5, 2);
+        }
+
+        $FinishGood = PostTreatment::select([
+            'FinishGood'
+        ])
+        ->selectRaw('MONTH(StartDate) as date')
+        ->orderBy('StartDate', 'desc')->whereYear('StartDate', $date)->get();
+
+        return view('Operator.Mylea.Dashboard', [
+            'Data' => $Data,
+            'FinishGood' => $FinishGood,
+        ]);
+    }
+    public function MyleaMonitoring(Request $request)
     {
-        $Data = MyleaProduction::orderBy('ProductionDate', 'desc')->paginate(10);
+        if($request['InitialDate'] !='' && $request['EndDate'] != ''){
+            $Date1 = date('Y-m-d', strtotime($request['InitialDate']));
+            $Date2 = date('Y-m-d', strtotime($request['EndDate']));
+            $Data = MyleaProduction::orderBy('ProductionDate', 'desc')->whereBetween('ProductionDate', [$Date1, $Date2])->paginate(10);
+        } else {
+            $Data = MyleaProduction::orderBy('ProductionDate', 'desc')->paginate(10);
+        }
+
 
         foreach ($Data as $data) {
 
@@ -49,6 +78,9 @@ class MyleaController extends Controller
 
             $data['InStock'] = $data['TotalTray'] - ($data['TotalContamination'] + $data['TotalHarvest']);
         }
+
+        $MyleaLogic = new MyleaLogic();
+        $Data = $MyleaLogic->FilteredData($Data, $request);
 
         $TotalFinishGood = PostTreatment::all()->sum('FinishGood');
 

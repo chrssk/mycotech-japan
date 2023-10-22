@@ -4,7 +4,7 @@ namespace App\Models\PostTreatment;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use MyleaHarvest;
+use App\Models\Mylea\MyleaHarvest;
 
 class PostTreatmentDetails extends Model
 {

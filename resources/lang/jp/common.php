@@ -13,6 +13,7 @@
         'ProductionDate' => '制作日',
         'StartDate' => '開始日',
         'TotalTray' => 'トレイ',
+        'TotalProduction' => '総生産量',
         'Contamination' => '汚染',
         'Harvest' => '収穫',
         'HarvestDate'=> '収穫日',

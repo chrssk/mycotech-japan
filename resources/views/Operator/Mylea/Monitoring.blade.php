@@ -21,7 +21,17 @@
             </div>
             @endif
         </div>
-        @include('Operator.Mylea.Partials.MonitoringSummary')
+        <div id="SummaryNFilter">
+            <div id="MyleaSummaryTitle">
+                <h2>{{__('common.Summary')}}</h2>
+            </div>
+            
+            <div class="row mb-3">
+                @include('Operator.Mylea.Partials.MonitoringSummary')
+                @include('Operator.Mylea.Partials.MonitoringFilter')
+            </div>
+        </div>
+       
         <h2>{{__("monitoring.MyleaTitle")}}</h2>
         <div id="MonitoringTable" class="bg-white">
             <table class="table table-white" >
@@ -63,7 +73,9 @@
                 @endforeach
             </table>
             <div class="d-flex justify-content-center">
+                @if (!isset($_GET['filter']))
                 {!! $Data->links() !!}
+                @endif
             </div>
         </div>        
     </div>

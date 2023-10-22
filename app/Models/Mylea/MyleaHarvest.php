@@ -4,6 +4,9 @@ namespace App\Models\Mylea;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Mylea\FinishGood;
+use App\Models\PostTreatment\PostTreatmentDetails;
+
 
 class MyleaHarvest extends Model
 {
@@ -22,4 +25,5 @@ class MyleaHarvest extends Model
     {
         return $this->hasMany(PostTreatmentDetails::class, 'HarvestID');
     }
+
 }

@@ -32,6 +32,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/en/baglog-monitoring-delete/{id}', [App\Http\Controllers\Operator\Baglog\BaglogController::class, 'BaglogMonitoringDelete'])->name('BaglogMonitoringDelete');
 
     //Operator Mylea
+    Route::get('/en/mylea-dashboard', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaDashboard'])->name('MyleaDashboard')->middleware('Language');
     Route::get('/en/mylea-monitoring', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaMonitoring'])->name('MyleaMonitoring')->middleware('Language');
     Route::get('/en/mylea-production-form', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaProductionForm'])->name('MyleaProductionForm')->middleware('Language');
     Route::post('/en/mylea-production-submit', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaProductionSubmit'])->name('MyleaProductionSubmit');
@@ -50,7 +51,7 @@ Route::middleware(['auth'])->group(function (){
 
     // Operator Finish Good
     Route::get('/en/finish-good-form/{id}', [App\Http\Controllers\Operator\FinishGood\FinishGoodController::class, 'FinishGoodForm'])->name('FinishGoodForm')->middleware('Language');
-    Route::post('/en/finish-good-submit}', [App\Http\Controllers\Operator\FinishGood\FinishGoodController::class, 'FinishGoodSubmit'])->name('FinishGoodSubmit');
+    Route::post('/en/finish-good-submit', [App\Http\Controllers\Operator\FinishGood\FinishGoodController::class, 'FinishGoodSubmit'])->name('FinishGoodSubmit');
     Route::get('/en/finish-good-data/{id}', [App\Http\Controllers\Operator\FinishGood\FinishGoodController::class, 'FinishGoodData'])->name('FinishGoodData')->middleware('Language');
     Route::get('/en/finish-good-delete/{id}/{details}', [App\Http\Controllers\Operator\FinishGood\FinishGoodController::class, 'FinishGoodDelete'])->name('FinishGoodDelete');
 

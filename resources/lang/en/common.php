@@ -13,6 +13,7 @@
         'ProductionDate' => 'Production Date',
         'StartDate' => 'Start Date',
         'TotalTray' => 'Total Tray',
+        'TotalProduction' => 'Total Production',
         'Contamination' => 'Contamination',
         'Harvest' => 'Harvest',
         'HarvestDate' => 'Harvest Date',

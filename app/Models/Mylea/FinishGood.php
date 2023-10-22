@@ -16,4 +16,10 @@ class FinishGood extends Model
         'FinishGoodDate',  
         'Total', 
     ];
+
+
+    public function harvest()
+    {
+        return $this->belongsTo(MyleaHarvest::class);
+    }
 }
