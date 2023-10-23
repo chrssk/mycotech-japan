@@ -2,7 +2,7 @@
 
 @section('content')
 <style>
-    td {
+    td, th {
         text-align: center
     }
 </style>
@@ -10,7 +10,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('monitoring.Home')}}</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Mylea Dashboard</li>
+          <li class="breadcrumb-item active" aria-current="page">{{__('dashboard.MyleaDashboard')}}</li>
         </ol>
     </nav>
     <div class="row bg-white p-4 rounded">
@@ -28,7 +28,7 @@
     </div>
 
     <div id="dashboard" class="bg-white">
-        <h2>Dashboard</h2>
+        <h2>{{__('dashboard.MyleaDashboard')}}</h2>
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <tr>
@@ -53,7 +53,7 @@
                     <th class="table-dark border-white">Dec</th>
                 </tr>
                 <tr>
-                    <th class="title sticky-header-left bg-light">Total Mylea Production</th>
+                    <th class="title sticky-header-left bg-light">{{__('common.TotalProduction')}}</th>
                     <td>{{$Data->where('ProductionDate', '01')->sum('TotalTray')}}</td>
                     <td>{{$Data->where('ProductionDate', '02')->sum('TotalTray')}}</td>
                     <td>{{$Data->where('ProductionDate', '03')->sum('TotalTray')}}</td>
@@ -68,7 +68,7 @@
                     <td>{{$Data->where('ProductionDate', '12')->sum('TotalTray')}}</td>
                 </tr>
                 <tr>
-                    <th class="title sticky-header-left bg-light">Harvest Rate</th>
+                    <th class="title sticky-header-left bg-light">{{__('common.HarvestRate')}}</th>
                     <td>@if($Data->where('ProductionDate', '01')->sum('TotalTray') != 0){{round($Data->where('ProductionDate', '01')->sum('TotalHarvest')/$Data->where('ProductionDate', '01')->sum('TotalTray'), 2)*100}} @else 0 @endif%</td>
                     <td>@if($Data->where('ProductionDate', '02')->sum('TotalTray') != 0){{round($Data->where('ProductionDate', '02')->sum('TotalHarvest')/$Data->where('ProductionDate', '02')->sum('TotalTray'), 2)*100}} @else 0 @endif%</td>
                     <td>@if($Data->where('ProductionDate', '03')->sum('TotalTray') != 0){{round($Data->where('ProductionDate', '03')->sum('TotalHarvest')/$Data->where('ProductionDate', '03')->sum('TotalTray'), 2)*100}} @else 0 @endif%</td>
@@ -83,7 +83,7 @@
                     <td>@if($Data->where('ProductionDate', '12')->sum('TotalTray') != 0){{round($Data->where('ProductionDate', '12')->sum('TotalHarvest')/$Data->where('ProductionDate', '12')->sum('TotalTray'), 2)*100}} @else 0 @endif%</td>
                 </tr>
                 <tr>
-                    <th class="title sticky-header-left bg-light">Total Harvest</th>
+                    <th class="title sticky-header-left bg-light">{{__('common.TotalHarvest')}}</th>
                     <td>{{$Data->where('ProductionDate', '01')->sum('TotalHarvest')}}</td>
                     <td>{{$Data->where('ProductionDate', '02')->sum('TotalHarvest')}}</td>
                     <td>{{$Data->where('ProductionDate', '03')->sum('TotalHarvest')}}</td>
@@ -98,7 +98,7 @@
                     <td>{{$Data->where('ProductionDate', '12')->sum('TotalHarvest')}}</td>
                 </tr>
                 <tr>
-                    <th class="title sticky-header-left bg-light">Finish Good</th>
+                    <th class="title sticky-header-left bg-light">{{__('common.FinishedGoods')}}</th>
                     <td>{{$FinishGood->where('date', '01')->sum('FinishGood')}}</td>
                     <td>{{$FinishGood->where('date', '02')->sum('FinishGood')}}</td>
                     <td>{{$FinishGood->where('date', '03')->sum('FinishGood')}}</td>

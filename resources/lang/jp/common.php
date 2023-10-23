@@ -1,7 +1,8 @@
 <?php
     return [
         'InStock' => '在庫あり',
-        'UnderIncubation' => 'アンダー・サブストレート・バッグ・インキュベーション',
+        'UnderIncubation' => 'インキュベーション中',
+        'UnderSubstrateBagIncubation' => 'アンダー・サブストレート・バッグ・インキュベーション',
         'Action' => 'アクション',
         'Update' => '更新',
         'Delete' => '削除',
@@ -34,4 +35,9 @@
         'PostTreatmentDate' => '治療後の日付',
         'Reject' => '却下',
         'UnderPostTreatment' => '後処理中',
+        'HarvestRate' => '収穫率',
+        'TotalHarvest' => '総収穫量',
+        'InitialDate' => '初回日付',
+        'EndDate' => '終了日',
+        
     ];

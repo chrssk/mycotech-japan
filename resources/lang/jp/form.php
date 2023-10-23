@@ -19,4 +19,5 @@
         'DeleteFinishGoodConfirmation'=> '本当にIDを削除したいですか',
         'DeletePostTreatment'=> '後処理の削除',
         'DeletePostTreatmentConfirmation' => '本当にIDを持つポストトリートメントを削除したいですか？',
+        'FilterForm' => 'フィルターフォーム',
     ];

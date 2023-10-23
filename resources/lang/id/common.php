@@ -1,7 +1,8 @@
 <?php
     return [
         'InStock' => 'In Stock',
-        'UnderIncubation' => 'Dalam Proses Inkubasi Baglog',
+        'UnderIncubation' => 'Dalam Proses Inkubasi',
+        'UnderSubstrateBagIncubation' => 'Dalam Proses Inkubasi Substrate Bag',
         'Action' => 'Aksi',
         'Update' => 'Perbarui',
         'Delete' => 'Hapus',
@@ -34,5 +35,10 @@
         'PostTreatmentDate' => 'Tanggal Post Treatment',
         'Reject' => 'Reject',
         'UnderPostTreatment' => 'Dalam Post Treatment',
+        'HarvestRate' => 'Rate Harvest',
+        'TotalHarvest' => 'Total Harvest',
+        
+        'InitialDate' => 'Tanggal Awal',
+        'EndDate' => 'Tanggal Akhir',
         
     ];

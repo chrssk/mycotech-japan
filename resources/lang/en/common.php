@@ -1,7 +1,8 @@
 <?php
     return [
         'InStock' => 'In Stock',
-        'UnderIncubation' => 'Under Substrate Bag Incubation',
+        'UnderIncubation' => 'Under Incubation',
+        'UnderSubstrateBagIncubation' => 'Under Subtrate Bag Incubation',
         'Action' => 'Action',
         'Update' => 'Update',
         'Delete' => 'Delete',
@@ -34,5 +35,10 @@
         'PostTreatmentDate' => 'Post Treatment Date',
         'Reject' => 'Reject',
         'UnderPostTreatment' => 'Under Post Treatment',
+        'HarvestRate' => 'Harvest Rate',
+        'TotalHarvest' => 'Total Harvest',
+
+        'InitialDate' => 'Initial Date',
+        'EndDate' => 'End Date',
         
     ];
