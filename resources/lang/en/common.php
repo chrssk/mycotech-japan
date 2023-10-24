@@ -40,5 +40,7 @@
 
         'InitialDate' => 'Initial Date',
         'EndDate' => 'End Date',
+        'MYCLJapan' => 'MYCL Japan',
+        'MYCLIndonesia' => 'MYCL Indonesia',
         
     ];
