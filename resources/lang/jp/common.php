@@ -39,5 +39,6 @@
         'TotalHarvest' => '総収穫量',
         'InitialDate' => '初回日付',
         'EndDate' => '終了日',
-        
+        'MYCLJapan' => 'MYCLジャパン',
+        'MYCLIndonesia' => 'MYCLインドネシア',
     ];

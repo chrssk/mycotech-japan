@@ -7,28 +7,22 @@
     }
 </style>
 <div class="container">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('monitoring.Home')}}</a></li>
-          <li class="breadcrumb-item active" aria-current="page">{{__('dashboard.MyleaDashboard')}}</li>
-        </ol>
-    </nav>
-    <div class="row bg-white p-4 rounded">
-        <div class="alertDiv">
-            @if(session()->has('Success'))
-                <div class="alert alert-success" role="alert">
-                    {{session('Success')}}
+    <div id="dashboard" class="bg-white p-4">
+        <div class="row bg-white p-4 rounded">
+            <div class="alertDiv">
+                @if(session()->has('Success'))
+                    <div class="alert alert-success" role="alert">
+                        {{session('Success')}}
+                    </div>
+                @elseif(session()->has('Error'))
+                <div class="alert alert-danger" role="alert">
+                    {{session('Error')}}
                 </div>
-            @elseif(session()->has('Error'))
-            <div class="alert alert-danger" role="alert">
-                {{session('Error')}}
-            </div>
-            @endif
-        </div>  
-    </div>
+                @endif
+            </div>  
+        </div>
 
-    <div id="dashboard" class="bg-white">
-        <h2>{{__('dashboard.MyleaDashboard')}}</h2>
+        <h2>MYCL Japan</h2>
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <tr>
@@ -113,6 +107,95 @@
                     <td>{{$FinishGood->where('date', '12')->sum('FinishGood')}}</td>
                 </tr>
             </table>
+        </div>
+                
+
+        <h2 class="mt-4">MYCL Indonesia</h2>
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <th rowspan="2" class="table-dark border-white sticky-header-left"></th>
+                    <th colspan="3" class="text-center table-dark border-white">Q1</th>
+                    <th colspan="3" class="text-center table-dark border-white">Q2</th>
+                    <th colspan="3" class="text-center table-dark border-white">Q3</th>
+                    <th colspan="3" class="text-center table-dark border-white">Q4</th>
+                </tr>
+                <tr>
+                    <th class="table-dark border-white">Jan</th>
+                    <th class="table-dark border-white">Feb</th>
+                    <th class="table-dark border-white">Mar</th>
+                    <th class="table-dark border-white">Apr</th>
+                    <th class="table-dark border-white">May</th>
+                    <th class="table-dark border-white">Jun</th>
+                    <th class="table-dark border-white">Jul</th>
+                    <th class="table-dark border-white">Aug</th>
+                    <th class="table-dark border-white">Sep</th>
+                    <th class="table-dark border-white">Oct</th>
+                    <th class="table-dark border-white">Nov</th>
+                    <th class="table-dark border-white">Dec</th>
+                </tr>
+                <tr>
+                    <th class="title sticky-header-left bg-light">{{__('common.TotalProduction')}}</th>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <th class="title sticky-header-left bg-light">{{__('common.HarvestRate')}}</th>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <th class="title sticky-header-left bg-light">{{__('common.TotalHarvest')}}</th>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <th class="title sticky-header-left bg-light">{{__('common.FinishedGoods')}}</th>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            </table>
+        </div>
     </div>
     
 </div>

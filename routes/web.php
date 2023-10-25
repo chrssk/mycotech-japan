@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('Language');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('Language');
 Route::get('/change-language/{lang}',"\App\Http\Controllers\HomeController@changeLang")->middleware('Language');
 
 //Operator Baglog
@@ -32,7 +32,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/en/baglog-monitoring-delete/{id}', [App\Http\Controllers\Operator\Baglog\BaglogController::class, 'BaglogMonitoringDelete'])->name('BaglogMonitoringDelete');
 
     //Operator Mylea
-    Route::get('/en/mylea-dashboard', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaDashboard'])->name('MyleaDashboard')->middleware('Language');
+    Route::get('/home', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaDashboard'])->name('home')->middleware('Language');
     Route::get('/en/mylea-monitoring', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaMonitoring'])->name('MyleaMonitoring')->middleware('Language');
     Route::get('/en/mylea-production-form', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaProductionForm'])->name('MyleaProductionForm')->middleware('Language');
     Route::post('/en/mylea-production-submit', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaProductionSubmit'])->name('MyleaProductionSubmit');
