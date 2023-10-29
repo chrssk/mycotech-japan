@@ -30,7 +30,7 @@
               <input type="date" class="form-control" id="ProductionDate" name="ProductionDate" required>
             </div>
             <div class="mb-3">
-              <label for="TotalTray" class="form-label">{{__('common.TotalTray')}}</label>
+              <label for="TotalTray" class="form-label">{{__('common.TotalProduction')}}</label>
               <input type="number" class="form-control" id="TotalTray" name="TotalTray" required>
             </div>
             <table class="table table-bordered" id="dynamicAddRemove">
@@ -43,11 +43,13 @@
                     <td>
                         <select name="data[0][BaglogID]" class="form-select" id="BaglogCode">
                             @foreach ($BaglogData as $item)
+                                @if($item['InStock'] != 0)
                                 <option value="{{$item['id']}}">{{$item['BaglogCode']}} {{__('common.InStock')}} :{{$item['InStock']}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </td>
-                    <td><input type="number" name="data[0][Quantity]" class="form-control" /></td>
+                    <td><input type="number" name="data[0][Quantity]" max="{{$item['InStock']}}"  min="1" class="form-control" /></td>
                     <td><button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">{{__('form.AddBaglog')}}</button></td>
                 </tr>
             </table> 
@@ -61,7 +63,7 @@
         var i = 0;
         $("#dynamic-ar").click(function () {
             ++i;
-        $("#dynamicAddRemove").append('<tr><td><select name="data['+ i +'][BaglogID]" class="form-select" id="BaglogCode">@foreach ($BaglogData as $item)<option value="{{$item['id']}}">{{$item['BaglogCode']}} {{__('common.InStock')}} :{{$item['InStock']}}</option>@endforeach</select></td><td><input type="number" name="data['+ i +'][Quantity]" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">{{__('common.Delete')}}</button></td></tr>');
+        $("#dynamicAddRemove").append('<tr><td><select name="data['+ i +'][BaglogID]" class="form-select" id="BaglogCode">@foreach ($BaglogData as $item)<option value="{{$item['id']}}">{{$item['BaglogCode']}} {{__('common.InStock')}} :{{$item['InStock']}}</option>@endforeach</select></td><td><input type="number" max="{{$item['InStock']}}"  min="1" name="data['+ i +'][Quantity]" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">{{__('common.Delete')}}</button></td></tr>');
         });
         $(document).on('click', '.remove-input-field', function () {
             $(this).parents('tr').remove();

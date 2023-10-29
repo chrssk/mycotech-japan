@@ -1,5 +1,6 @@
 <div class="col-md-6">
     <div class="card">
+        <div class="card-header">{{__('common.Summary')}}</div>
         <div class="card-body">
             <table width="100%"  style="font-size: 1.0rem;">
                 <tr>
