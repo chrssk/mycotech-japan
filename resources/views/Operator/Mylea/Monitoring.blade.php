@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    .card {
+        height: 100%
+    }
+</style>
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -22,11 +27,7 @@
             @endif
         </div>
         <div id="SummaryNFilter">
-            <div id="MyleaSummaryTitle">
-                <h2>{{__('common.Summary')}}</h2>
-            </div>
-            
-            <div class="row mb-3">
+            <div class="row">
                 @include('Operator.Mylea.Partials.MonitoringSummary')
                 @include('Operator.Mylea.Partials.MonitoringFilter')
             </div>
@@ -38,11 +39,10 @@
                 <tr class="text-center">
                     <th>{{__("monitoring.ProductionCode")}}</th>
                     <th>{{__("common.ProductionDate")}}</th>
-                    <th>{{__("common.TotalTray")}}</th>
+                    <th>{{__("common.TotalProduction")}}</th>
                     <th>{{__("common.UnderIncubation")}}</th>
                     <th>{{__("common.Contamination")}}</th>
                     <th>{{__("common.Harvest")}}</th>
-                    <th>{{__("common.RemainingHarvest")}}</th>
                     <th colspan="2">{{__("common.Action")}}</th>
                 </tr>
                 @foreach($Data as $item)
@@ -63,8 +63,7 @@
                     @else
                         <td>{{ $item['TotalHarvest'] }}</td>
                     @endif
-
-                    <td>{{ $item['RemainingHarvest'] }}</td>
+                    
                     <td><a href="{{route('MyleaProductionDetails', ['id'=>$item['id'],])}}" class="btn btn-primary">{{__("common.Update")}}</a></td>
                     <td><a href="{{route('MyleaContaminationForm', ['id'=>$item['id'],])}}" class="btn btn-primary">{{__("form.ContaminationForm")}}</a></td>
                     <td><a href="{{route('MyleaHarvestForm', ['id'=>$item['id'],])}}" class="btn btn-primary">{{__("form.HarvestForm")}}</a></td>

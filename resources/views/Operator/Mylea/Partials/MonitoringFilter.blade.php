@@ -87,23 +87,6 @@
                         <input type="text" name="HarvestNumber" placeholder="Number" class="form-control" value="@if(isset($_GET['HarvestNumber'])){{$_GET['HarvestNumber']}}@endif">
                     </div>
                 </div>
-                <div class="row mb-2">
-                    <label for="RemainingHarvest" class="col-sm-4 col-form-label col-form-label-sm">{{__('common.RemainingHarvest')}}</label>
-                    <label class="col-sm-1 col-form-label col-form-label-sm">:</label>
-                    <div class="col-sm-2">
-                        <select name="RemainingHarvestOperator" class="form-control">
-                            <option value=">">></option>
-                            <option value="<"><</option>
-                            <option value="=">=</option>
-                            @if(isset($_GET['RemainingHarvestOperator']))
-                            <option value="{{$_GET['RemainingHarvestOperator']}}" selected>{{$_GET['RemainingHarvestOperator']}}</option>
-                            @endif
-                        </select>
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="text" name="RemainingHarvestNumber" placeholder="Number" class="form-control" value="@if(isset($_GET['RemainingHarvestNumber'])){{$_GET['RemainingHarvestNumber']}}@endif">
-                    </div>
-                </div>
                 <input type="submit" name="filter" class="btn btn-primary">
             </form>
         </div>
