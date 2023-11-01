@@ -7,7 +7,7 @@
         </div>
         <div class="modal-body">
             <div id="PostTreatmentUpdateForm">
-                <form action="{{route('PostTreatmentUpdate')}}" method="POST">
+                <form id="PostTreatmentForm" action="{{route('PostTreatmentUpdate')}}" method="POST">
                     @csrf
                     <input type="hidden" name="id" value="{{$item['id']}}">
                     <div class="mb-3">
@@ -26,13 +26,28 @@
                         <label for="Notes" class="form-label">{{__('common.Notes')}}</label>
                         <input type="text" class="form-control" id="Notes" name="Notes" value="{{$item['Notes']}}">
                     </div>
+                 </form> 
             </div>
+            {{$item['details']->sum('Total')}}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{__('common.Close')}}</button>
-            <button type="submit" class="btn btn-primary">{{__('common.Submit')}}</button> 
-            </form> 
+            <button onclick="submitForm({{$item['details']->sum('Total')}})" class="btn btn-primary" >{{__('common.Submit')}}</button> 
+
         </div>
       </div>
     </div>
   </div>
+
+  <script type="text/javascript">
+    function submitForm(max){
+        reject = document.querySelector('#Reject').value;
+        finishGood = document.querySelector('#FinishGood').value;
+        if((finishGood + reject) <= max) {
+            document.forms['PostTreatmentForm'].submit();
+        }
+        else {
+            alert("Value mismatch");
+        }
+    }
+  </script>
