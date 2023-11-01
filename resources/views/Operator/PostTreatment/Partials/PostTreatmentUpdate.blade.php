@@ -28,7 +28,6 @@
                     </div>
                  </form> 
             </div>
-            {{$item['details']->sum('Total')}}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{__('common.Close')}}</button>
