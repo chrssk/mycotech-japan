@@ -42,7 +42,10 @@
     function submitForm(max){
         reject = document.querySelector('#Reject').value;
         finishGood = document.querySelector('#FinishGood').value;
-        if((finishGood + reject) <= max) {
+        total = parseInt(reject) + parseInt (finishGood);
+        console.log(total);
+        console.log(max);
+        if((total) <= max) {
             document.forms['PostTreatmentForm'].submit();
         }
         else {
