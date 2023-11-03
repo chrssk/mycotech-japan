@@ -33,7 +33,7 @@
             </div>
         </div>
        
-        <h2>{{__("monitoring.MyleaTitle")}}</h2>
+        <h2 class="mt-2">{{__("monitoring.MyleaTitle")}}</h2>
         <div id="MonitoringTable" class="bg-white">
             <table class="table table-white" >
                 <tr class="text-center">
