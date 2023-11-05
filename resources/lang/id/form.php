@@ -5,6 +5,7 @@
         'ProductionForm' => 'Form Produksi',
         'PostTreatmentForm' => 'Form Post Treatment',
         'AddBaglog' => 'Tambah Substrate Bag',
+        'AddMylea' => 'Tambah Mylea',
         'ContaminationForm' => 'Form Kontaminasi',
         'ContaminationData' => 'Data Contamination ',
         'HarvestForm' => 'Form Panen',
