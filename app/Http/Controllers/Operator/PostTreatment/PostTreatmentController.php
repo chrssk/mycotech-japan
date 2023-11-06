@@ -40,11 +40,13 @@ class PostTreatmentController extends Controller
     public function PostTreatmentSubmit(Request $request)
     {
         try {
-
+            $cm = array_column($request['data'], 'HarvestID');
+            if($cm != array_unique($cm)){
+                return redirect(route('PostTreatmentForm'))->with('Error', 'Message : ' . "Duplicate Mylea Values");
+            }
             $id = PostTreatment::create([
                 'StartDate' => $request['StartDate'],
             ])->id;
-    
     
             foreach($request['data'] as $item){
                 PostTreatmentDetails::create([

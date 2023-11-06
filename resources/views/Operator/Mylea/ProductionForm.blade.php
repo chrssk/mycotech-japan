@@ -50,7 +50,7 @@
                         </select>
                     </td>
                     <td><input type="number" name="data[0][Quantity]"  id="Quantity0" min="1" class="form-control" /></td>
-                    <td><button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">{{__('form.AddBaglog')}}</button></td>
+                    <td><button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">{{__('form.AddMylea')}}</button></td>
                 </tr>
             </table> 
             <button type="submit" class="btn btn-primary">{{__('common.Submit')}}</button> 

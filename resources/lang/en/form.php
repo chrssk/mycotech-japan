@@ -5,6 +5,7 @@
         'ProductionForm' => 'Production Form',
         'PostTreatmentForm' => 'Post Treatment Form',
         'AddBaglog' => 'Add Substrate Bag',
+        'AddMylea' => 'Add Mylea',
         'ContaminationForm' => 'Contamination Form',
         'ContaminationData' => 'Contamination Data',
         'HarvestForm' => 'Harvest Form',

@@ -5,6 +5,7 @@
         'ProductionForm' => '制作フォーム',
         'PostTreatmentForm' => '治療後フォーム',
         'AddBaglog' => '基質バッグの追加',
+        'AddMylea' => 'ミレアを追加',
         'ContaminationForm' => '汚染票',
         'ContaminationData' => '汚染データ',
         'HarvestForm' => '収穫フォーム',

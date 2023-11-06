@@ -81,6 +81,7 @@
             var value = e.options[e.selectedIndex].value;
 
             let obj = dat.find(o => o.id === parseInt(value));
+
             var max = obj.TotalHarvest;
             inputId = "#Quantity" + i;
             console.log(obj);
@@ -89,6 +90,7 @@
                 "min" : 1
             });
         }
+        
     </script> 
 </div>
 @endsection
