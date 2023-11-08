@@ -22,7 +22,7 @@
         </div>
         
         <h2>{{__('form.MyleaProductionForm')}}</h2>
-        <form action="{{route('MyleaProductionUpdate')}}" method="POST">
+        <form action="{{route('MyleaProductionUpdate')}}" method="POST" onsubmit="validate()">
             @csrf
             <div class="mb-3">
               <input type="hidden" name="id" value="{{ $Data['id'] }}">  
@@ -42,17 +42,13 @@
                 @foreach ($DataBaglog as $index =>$dataBaglog2 )
                     <tr>
                         <td>
-                            <select name="data[{{ $index }}][BaglogID]" class="form-select" id="BaglogCode0" onchange="SetMax(0)">
+                            <select name="data[{{ $index }}][BaglogID]" class="form-select" id="BaglogCode0" onsubmit="SetMax({{$index}}, {{$dataBaglog2['Total']}})">
                                 @foreach ($BaglogData as $item)
-                                    <option value="{{$item['id']}}"
-                                        @if ($item['id'] == $dataBaglog2['BaglogID'])
-                                            selected
-                                        @endif
-                                    >{{$item['BaglogCode']}} {{__('common.InStock')}} :{{$item['InStock']}}</option>
+                                    <option value="{{$item['id']}}" @if ($item['id'] == $dataBaglog2['BaglogID']) selected @endif>{{$item['BaglogCode']}} {{__('common.InStock')}} :{{$item['InStock']}} @if ($item['id'] == $dataBaglog2['BaglogID']) + {{$dataBaglog2['Total']}} [Current Usage] @endif</option>
                                 @endforeach
                             </select>
                         </td>
-                        <td><input type="number" name="data[{{ $index }}][Quantity]" class="form-control" value="{{ $dataBaglog2['Total'] }}"></td>
+                        <td><input type="number" name="data[{{ $index }}][Quantity]" id="Quantity0" class="form-control" value="{{ $dataBaglog2['Total'] }}"></td>
                         <td>
                             @if ($index > 0)
                                 <button type="button" class="btn btn-outline-danger remove-input-field">{{__('common.Delete')}}</button>
@@ -73,18 +69,25 @@
     <script type="text/javascript">
         var i = 0;
         var dat = <?php echo json_encode($BaglogData)?>;
+        var datFromDB = <?php echo json_encode($DataBaglog)?>;
+
         $( document ).ready(function() {
-            SetMax(0);
+            for(j = 0; j < datFromDB.length; j++){
+                SetMax(j, datFromDB[j].Total);
+                console.log(datFromDB[j].Total);
+            }
+            
         });
+
         $("#dynamic-ar").click(function () {
             ++i;
-            $("#dynamicAddRemove").append('<tr><td><select name="data['+ i +'][BaglogID]" class="form-select"  id="BaglogCode' + i  + '" onchange="SetMax('+ i +')">@foreach ($BaglogData as $item)<option value="{{$item['id']}}">{{$item['BaglogCode']}} In Stock :{{$item['InStock']}}</option>@endforeach</select></td><td><input type="number" name="data['+ i +'][Quantity]" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">{{__('common.Delete')}}</button></td></tr>');
+            $("#dynamicAddRemove").append('<tr><td><select name="data['+ i +'][BaglogID]" class="form-select"  id="BaglogCode' + i  + '" onchange="SetMax('+ i +')">@foreach ($BaglogData as $item)<option value="{{$item['id']}}">{{$item['BaglogCode']}} In Stock :{{$item['InStock']}}</option>@endforeach</select></td><td><input type="number" name="data['+ i +'][Quantity]" class="form-control" id="Quantity'+ i +'" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">{{__('common.Delete')}}</button></td></tr>');
             SetMax(i);
         });
         $(document).on('click', '.remove-input-field', function () {
             $(this).parents('tr').remove();
         });
-        function SetMax(i) {
+        function SetMax(i, current) {
             name = "BaglogCode" + i;
             var e = document.getElementById("BaglogCode" + i);
             var value = e.options[e.selectedIndex].value;
@@ -92,6 +95,12 @@
             let obj = dat.find(o => o.id === parseInt(value));
             var max = obj.InStock;
             inputId = "#Quantity" + i;
+
+            console.log(current);
+            
+            if(current != null){
+                max = parseInt(max) + parseInt(current)
+            }
 
             $(inputId).attr({
                 "max" : max,
