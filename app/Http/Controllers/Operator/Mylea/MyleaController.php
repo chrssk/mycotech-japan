@@ -157,6 +157,10 @@ class MyleaController extends Controller
             $date = date_create($request['ProductionDate']);
             $RawCode = "MYJT0".date_format($date, "ymd");
 
+            $cm = array_column($request['data'], 'BaglogID');
+            if($cm != array_unique($cm)){
+                return redirect()->back()->with('Error', 'Message : ' . "Duplicate Substrate Bag Values");
+            }
 
             MyleaProduction::where('id', $request['id'])->update([
                 'MyleaCode' => $RawCode,
