@@ -4,7 +4,7 @@
         <div class="card-body">
             <table width="100%"  style="font-size: 1.0rem;">
                 <tr>
-                    <td>{{__('common.TotalProduction')}}</td>
+                    <td>{{__('common.TotalProductionTray')}}</td>
                     <td>:</td>
                     <td>{{$Data->sum('TotalTray')}}</td>
                     <td>{{__('common.Pieces')}}</td>

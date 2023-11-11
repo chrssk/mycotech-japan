@@ -24,7 +24,8 @@
             @endif
         </div> --}}
 
-        <h2>{{__('monitoring.Mylea')}}{{ $MyleaDetails->MyleaCode }} {{__('form.ContaminationForm')}}</h2>
+        {{-- <h2>{{__('monitoring.Mylea')}} {{ $MyleaDetails->MyleaCode }} {{__('form.ContaminationForm')}}</h2> --}}
+        <h2>{{__('form.MyleaContaminationForm')}}</h2>
         <form action="{{route('MyleaContaminationSubmit')}}" method="POST">
             @csrf
             <div class="mb-3">

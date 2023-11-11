@@ -15,6 +15,7 @@
         'StartDate' => 'Tanggal Mulai',
         'TotalTray' => 'Total Tray',
         'TotalProduction' => 'Total Produksi',
+        'TotalProductionTray' => 'Total Tray',
         'Contamination' => 'Kontaminasi',
         'Harvest' => 'Panen',
         'HarvestDate' => 'Tanggal Panen',

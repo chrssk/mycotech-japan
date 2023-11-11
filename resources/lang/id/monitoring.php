@@ -10,6 +10,7 @@ return [
     'MyleaCode' => 'Kode Mylea',
     'MyleaTitle' => 'Monitoring Mylea',
     'MyleaIncubation' => 'Monitoring Inkubasi',
+    'MyleaDashboard' =>'Dashboard Mylea',
     'ProductionCode' => 'Kode Produksi',
     'ContaminationData'=> 'Data Kontaminasi',
     'HarvestData' => 'Data Panen',

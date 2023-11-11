@@ -5,8 +5,15 @@
           <h5 class="modal-title" id="deleteConfirmationModalLabel">{{__("form.DeleteBaglog")}}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+
         <div class="modal-body">
-          {{__('form.DeleteBaglogConfirmation')}} {{$item['BaglogCode']}}?
+          @if(session()->get('lang_code')=='jp')
+            {{__('monitoring.Baglog') }}{{$item['BaglogCode']}}{{__('form.CommonConfirmation')}} ?
+          @elseif (session()->get('lang_code')=='id')
+          {{__('form.DeleteBaglogConfirmation')}} {{$item['BaglogCode']}}
+          @else
+          {{__('form.DeleteBaglogConfirmation')}} {{$item['BaglogCode']}}
+          @endif
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{__('common.Close')}}</button>

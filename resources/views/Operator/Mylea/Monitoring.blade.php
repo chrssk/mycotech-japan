@@ -39,11 +39,11 @@
                 <tr class="text-center">
                     <th>{{__("monitoring.ProductionCode")}}</th>
                     <th>{{__("common.ProductionDate")}}</th>
-                    <th>{{__("common.TotalProduction")}}</th>
+                    <th>{{__("common.TotalProductionTray")}}</th>
                     <th>{{__("common.UnderIncubation")}}</th>
                     <th>{{__("common.Contamination")}}</th>
                     <th>{{__("common.Harvest")}}</th>
-                    <th colspan="2">{{__("common.Action")}}</th>
+                    <th colspan="3">{{__("common.Action")}}</th>
                 </tr>
                 @foreach($Data as $item)
                 <tr class="text-center">

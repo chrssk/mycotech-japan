@@ -2,14 +2,15 @@
 
 return [
     'Home' => 'ホーム',
-    'Baglog' => '基材バッグ',
-    'BaglogTitle' => '基質バッグのモニタリング',
-    'BaglogCode' => '基材バッグコード',
+    'Baglog' => '菌床',
+    'BaglogTitle' => '菌床のモニタリング',
+    'BaglogCode' => '菌床コード',
 
-    'Mylea' => 'ミレア',
-    'MyleaCode' => 'ミレアコード',
+    'Mylea' => 'MYCL',
+    'MyleaCode' => 'MYCLコード',
     'MyleaTitle' => 'ミレアモニタリング',
     'MyleaIncubation' => 'インキュベーション・モニタリング',
+    'MyleaDashboard' =>'MYCLダッシュボード',
     'ProductionCode' => 'プロダクション・コード',
     'ContaminationData'=> '汚染データ',
     'HarvestData' => '収穫データ',

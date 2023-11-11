@@ -2,8 +2,10 @@
     return [
         'BaglogInputForm' => 'Form Input Substrate Bag',
         'MyleaProductionForm' => 'Form Produksi Mylea',
+        'MyleaContaminationForm' => 'Form Kontaminasi Mylea',
         'ProductionForm' => 'Form Produksi',
         'PostTreatmentForm' => 'Form Post Treatment',
+        'PostTreatment' => 'Post Treatment',
         'AddBaglog' => 'Tambah Substrate Bag',
         'AddMylea' => 'Tambah Mylea',
         'ContaminationForm' => 'Form Kontaminasi',
@@ -11,7 +13,7 @@
         'HarvestForm' => 'Form Panen',
         'FinishGoodForm' => 'Form Finish Good',
         'DeleteBaglog'=> 'Hapus Substrate Bag',
-        'DeleteBaglogConfirmation' => 'Apakah anda yakin menghapus Substrate Bag dengan ID',
+        'DeleteBaglogConfirmation' => 'Apakah anda yakin menghapus Substrate Bag dengan Kode',
         'DeleteMyleaHarvest' => 'Hapus Panen Mylea',
         'DeleteMyleaHarvestConfirmation' => 'Apakah anda yakin menghapus panen Mylea dengan ID',
         'DeleteMyleaContamination' => 'Hapus Kontaminasi Mylea',
@@ -21,5 +23,6 @@
         'DeletePostTreatment'=> 'Hapus Post Treatment',
         'DeletePostTreatmentConfirmation' => 'Apakah anda yakin menghapus Post Treatment dengan ID',
         'FilterForm' => 'Filter Form',
+        
 
     ];

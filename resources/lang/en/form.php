@@ -2,7 +2,9 @@
     return [
         'BaglogInputForm' => 'Substrate Bag Input Form',
         'MyleaProductionForm' => 'Mylea Production Form',
+        'MyleaContaminationForm' => 'Mylea Contamination Form',
         'ProductionForm' => 'Production Form',
+        'PostTreatment' => 'Post Treatment',
         'PostTreatmentForm' => 'Post Treatment Form',
         'AddBaglog' => 'Add Substrate Bag',
         'AddMylea' => 'Add Mylea',
