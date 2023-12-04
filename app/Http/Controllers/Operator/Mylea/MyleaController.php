@@ -185,6 +185,19 @@ class MyleaController extends Controller
       
     }
 
+    
+    public function MyleaProductionDelete($id)
+    {
+        try {
+            MyleaProduction::where('id', $id)->delete();
+            // return redirect(route('MyleaHarvestData', ['id'=>$details]))->with('Success', 'Data deleted!');
+            return redirect()->back()->with('Success', 'Data Deleted');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('Error', 'Message : '. $e->getMessage());
+        }
+
+    }
+
     public function MyleaContaminationForm($id)
     {
         $MyleaDetails = MyleaProduction::where('id', $id)->first();

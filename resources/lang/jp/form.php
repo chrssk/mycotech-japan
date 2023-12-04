@@ -8,6 +8,7 @@
         'PostTreatment' => '後処理',
         'AddBaglog' => '基質バッグの追加',
         'AddMylea' => 'ミレアを追加',
+        'DeleteMylea' => 'MYCL削除',
         'ContaminationForm' => '雑菌混入形態',
         'ContaminationData' => '汚染データ',
         'HarvestForm' => '収穫フォーム',

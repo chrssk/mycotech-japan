@@ -37,6 +37,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/mylea-production-form', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaProductionForm'])->name('MyleaProductionForm')->middleware('Language');
     Route::post('/mylea-production-submit', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaProductionSubmit'])->name('MyleaProductionSubmit');
     Route::get('/mylea-production-details/{id}', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaProductionDetails'])->name('MyleaProductionDetails')->middleware('Language');
+    Route::get('/mylea-production-delete/{id}', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaProductionDelete'])->name('MyleaProductionDelete')->middleware('Language');
     Route::post('/mylea-production-update/', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaProductionUpdate'])->name('MyleaProductionUpdate');
     Route::get('/mylea-contamination-form/{id}', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaContaminationForm'])->name('MyleaContaminationForm')->middleware('Language');
     Route::post('/mylea-contamination-submit', [App\Http\Controllers\Operator\Mylea\MyleaController::class, 'MyleaContaminationSubmit'])->name('MyleaContaminationSubmit');

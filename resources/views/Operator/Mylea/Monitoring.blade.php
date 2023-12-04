@@ -65,6 +65,12 @@
                     @endif
                     
                     <td><a href="{{route('MyleaProductionDetails', ['id'=>$item['id'],])}}" class="btn btn-primary">{{__("common.Update")}}</a></td>
+                    <td>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal{{ $item['id'] }}">
+                            {{__("common.Delete")}}
+                        </button>
+                        @include('Operator.Mylea.Partials.DeleteMyleaConfirmation')
+                    </td>
                     <td><a href="{{route('MyleaContaminationForm', ['id'=>$item['id'],])}}" class="btn btn-primary">{{__("form.ContaminationForm")}}</a></td>
                     <td><a href="{{route('MyleaHarvestForm', ['id'=>$item['id'],])}}" class="btn btn-primary">{{__("form.HarvestForm")}}</a></td>
                 
