@@ -43,7 +43,7 @@
                     <th>{{__("common.UnderIncubation")}}</th>
                     <th>{{__("common.Contamination")}}</th>
                     <th>{{__("common.Harvest")}}</th>
-                    <th colspan="3">{{__("common.Action")}}</th>
+                    <th colspan="4">{{__("common.Action")}}</th>
                 </tr>
                 @foreach($Data as $item)
                 <tr class="text-center">
